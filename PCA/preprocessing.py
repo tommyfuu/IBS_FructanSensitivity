@@ -12,17 +12,20 @@ from sklearn.preprocessing import StandardScaler
 
 def BINUlabelDictsWGS(addressY):
     """
-    Intro: turn a y address into three dicts where you input the name of the 
-            variable to get the index, with which you can search for its 
-            optimised ML parameters in either its binary or numeric dict. It
-            also returns the 3 datasets matched with relevent datatypes
-    Para: addressY, a string address of a import file for y
-    Output: binaryLabelDict, a dict for binary variables
-            numericLabelDict, a dict for numeric variables
-            categoricLabelDict, a dict for categoric variables
-            dfBinaryY, a pd dataframe containing all binary variable data for y
-            dfCategoricY, a pd dataframe containing all categoric variable data for y
-            dfNumericY, a pd dataframe containing all numeric variable data for y
+    turn a y address into three dicts where you input the name of the 
+    variable to get the index, with which you can search for its 
+    optimised ML parameters in either its binary or numeric dict. It
+    also returns the 3 datasets matched with relevent datatypes
+    
+    Args:
+        addressY: a string address of a import file for y
+    Returns: 
+        binaryLabelDict, a dict for binary variables
+        numericLabelDict, a dict for numeric variables
+        categoricLabelDict, a dict for categoric variables
+        dfBinaryY, a pd dataframe containing all binary variable data for y
+        dfCategoricY, a pd dataframe containing all categoric variable data for y
+        dfNumericY, a pd dataframe containing all numeric variable data for y
     """
     # initialise
     binary_cols_Y = []
@@ -45,6 +48,17 @@ def BINUlabelDictsWGS(addressY):
 
 
 def XGetter(addressX, returnSampleNames=True):
+    """_summary_
+
+    Args:
+        addressX (str): a string address of a import file for X
+        returnSampleNames (bool, optional): whether to return a list of sample names
+
+    Returns:
+        X: numpy array of X
+        featureList: list of feature names
+        columnNames: list of sample names
+    """    
     # get X
     df = pd.read_csv(addressX, delimiter='\t')
     df1 = df.iloc[:, list(range(1, len(df.columns)))]
@@ -70,7 +84,7 @@ def BINUnormalise(addressX, addressY):
     Output: normalised X, formatted y, and the respect label dicts
     """
     # get X
-    X, allFeatureList, sampleNames = XGetter(addressX, returnSampleNames=True)
+    X, allFeatureList = XGetter(addressX, returnSampleNames=False)
     # get Y and label dicts
     binaryLabelDict, dfBinaryY = BINUlabelDictsWGS(
         addressY)
@@ -80,9 +94,6 @@ def BINUnormalise(addressX, addressY):
     dfBinaryY = dfBinaryY.applymap(
         lambda v: 0 if v == "No" else (1 if v == "Yes" else v))
 
-    # binaryY = dfBinaryY
     binaryY = np.array(dfBinaryY)
-    # fill out missing values (TODO: MAY NEED TO DELETE THIS LATER)
-    # binaryY = np.where(pd.isnull(binaryY), 0, binaryY)
 
     return X, binaryY, binaryLabelDict, allFeatureList
