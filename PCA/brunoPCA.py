@@ -39,9 +39,11 @@ def plotPCA(ZMatrix, binaryY, outputRoot, targets=['A', 'B', 'BS'], colors=['r',
         ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'],
                    finalDf.loc[indicesToKeep, 'principal component 2'], c=color, s=50)
     ax.legend(targets, loc="right")
-    if outputRoot=='4omicsPatientIDPCA':
-        ax.legend(targets, loc=(1.04,0))
-        fig.set_size_inches(15, 10.5)
+    if '4omicsPatientIDPCA' in outputRoot:
+        pos = ax.get_position()
+        ax.set_position([pos.x0, pos.y0, pos.width * 0.9, pos.height])
+        ax.legend(targets, loc='center right', bbox_to_anchor=(1.15, 0.5))
+        fig.set_size_inches(18, 10.5)
     ax.grid()
 
     fig.savefig(outputRoot+".png")
