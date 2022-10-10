@@ -252,8 +252,8 @@ patientID_colorL = ["black",
                     "lightpink", "slategray", "dodgerblue", "aliceblue", "lightgreen", "honeydew", "darkolivegreen", "yellow", "olive", "beige", "darkkhaki"]
 
 
-allOmicsX = './source/4omicsAllX.txt'
-humann3YW = './source/4omicsAllY_wmetadata.xlsx'
+allOmicsX = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/sourceData/4omicsAllX.txt'
+humann3YW = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/sourceData/4omicsAllY_wmetadata.xlsx'
 
 completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsDietsPCA', columnValue='Diet',
             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
