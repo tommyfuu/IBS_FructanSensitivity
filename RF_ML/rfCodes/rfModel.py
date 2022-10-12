@@ -195,8 +195,8 @@ def evaluatePipelineRepeated(addressX, addressY, omicName, outputRoot):
         # form pds and csvs
         with open("./outputsRF/"+ outputRoot+'/'+outputRoot+'.rocDict_small.pkl', 'wb') as f:
             pickle.dump(currentOmicResults,f, pickle.HIGHEST_PROTOCOL)
-        dictData = {'F1 scores': F1List,
-                    'Accuracy Scores': AccuracyScoreList, 'AUC Scores': AUCList}
+        dictData = {'F1 scores': pd.Series(F1List),
+                    'Accuracy Scores': pd.Series(AccuracyScoreList), 'AUC Scores': pd.Series(AUCList)}
         performanceDF1 = pd.DataFrame(dictData)
         performanceDF1.to_csv(
             './outputsRF/'+ outputRoot+'/'+'RepeatedNOAUCrfPerformance'+outputRoot+'-'+str(numOfRepetitions)+'.csv')
@@ -209,18 +209,6 @@ def evaluatePipelineRepeated(addressX, addressY, omicName, outputRoot):
 
     aovOutputWriter.close()
     return
-
-addressX = '/mnt/biology/donaldson/tom/brunoML_Mudd_0331/source/1011MetabolitesX.txt'
-addressY = '/mnt/biology/donaldson/tom/brunoML_Mudd_0331/source/AllDietsY.xlsx'
-omicName = '1010_Metabolites_100'
-outputRoot = '1010_Metabolites_100'
-evaluatePipelineRepeated(addressX, addressY, omicName, outputRoot)
-
-addressX = '/mnt/biology/donaldson/tom/brunoML_Mudd_0331/source/1011MetaphlanX.txt'
-addressY = '/mnt/biology/donaldson/tom/brunoML_Mudd_0331/source/AllDietsY.xlsx'
-omicName = '1010_Metaphlan_100'
-outputRoot = '1010_Metaphlan_100'
-evaluatePipelineRepeated(addressX, addressY, omicName, outputRoot)
 
 
 
@@ -323,5 +311,7 @@ def evaluatePipelineROC(dictAddressL, omicNameL, outputRoot):
     
     fig.write_image(outputRoot+"1.png")
     return
+
+
 
 
