@@ -187,8 +187,6 @@ def WGSTTestwFDR(source, differentiator, outRoot, taxoVar, diet=None):
                     currentLine = "\t".join(currentLineL)
                     print(currentLine)
                     aovOutputWriter.write(currentLine+'\n')
-                    # aovOutputWriter.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (
-                    #     lineContent[0], currentVarName, pVal, CohanEffectSize, foldChanges, mean0, mean1))
         except:
             print("Temporarily stopped")
             break
@@ -206,15 +204,11 @@ def WGSTTestwFDR(source, differentiator, outRoot, taxoVar, diet=None):
 
     # produce actual outputs
     for line in tempaovOutputReader:
-        whetherSignificant = False
         lineContent = line.split('\t')
-        print(lineContent)
         if lineContent[0] == 'AscensionNum':
             newLineContent = lineContent
             newLineContent.insert(3, 'fdrCorrectedpVal')
             aovOutputWriter.write("\t".join(newLineContent))
-            # aovOutputWriter.write(
-            #     'AscensionNum\tTaxoName\tpValue\tfdrCorrectedpVal\tCohenEffectSize\tfoldChanges\tmean0_tolerant\tmean1_sensitive\n')
         elif lineContent[0][:3] == 'ASN':
             rawP = lineContent[2]
             currentFDRP = fdrRawPL[fdrCounter]
@@ -223,18 +217,14 @@ def WGSTTestwFDR(source, differentiator, outRoot, taxoVar, diet=None):
             newLineContent.insert(3, currentFDRP)
             newLineContent = [str(el) for el in newLineContent]
             print(currentFDRP)
-            # if currentFDRP < 0.05:
-            #     whetherSignificant = True
             aovOutputWriter.write("\t".join(newLineContent))
-            # aovOutputWriter.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (
-            #     lineContent[0], lineContent[1], rawP, currentFDRP, lineContent[3][:-1], lineContent[4], lineContent[5], lineContent[6][:-1]))
 
     aovOutputWriter.close()
     os.system('say "Your program has finished"')
     return
 
 
-LipidomicsSource = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/sourceData/1011LipidomicsX.txt'
+LipidomicsSource = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/source/1011LipidomicsX.txt'
 WGSTTestwFDR(LipidomicsSource, 'FRUCTANSENSITIVE', 'kruskal.Lipids.all.101322', '# Gene Family')
 WGSTTestwFDR(LipidomicsSource, 'FRUCTANSENSITIVE', 'kruskal.Lipids.A.101322', '# Gene Family', diet='A')
 WGSTTestwFDR(LipidomicsSource, 'FRUCTANSENSITIVE', 'kruskal.Lipids.B.101322', '# Gene Family', diet='B')
@@ -244,7 +234,7 @@ WGSTTestwFDR(LipidomicsSource, 'FRUCTANSENSITIVE', 'kruskal.Lipids.AAndBS.101322
 WGSTTestwFDR(LipidomicsSource, 'FRUCTANSENSITIVE', 'kruskal.Lipids.BAndBS.101322', '# Gene Family', diet=['B', 'BS'])
 
 
-Humann3Source = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/sourceData/1011humann3X.txt'
+Humann3Source = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/source/1011humann3X.txt'
 WGSTTestwFDR(Humann3Source, 'FRUCTANSENSITIVE', 'kruskal.Humann3.all.101322', '# Gene Family')
 WGSTTestwFDR(Humann3Source, 'FRUCTANSENSITIVE', 'kruskal.Humann3.A.101322', '# Gene Family', diet='A')
 WGSTTestwFDR(Humann3Source, 'FRUCTANSENSITIVE', 'kruskal.Humann3.B.101322', '# Gene Family', diet='B')
@@ -254,7 +244,7 @@ WGSTTestwFDR(Humann3Source, 'FRUCTANSENSITIVE', 'kruskal.Humann3.AAndBS.101322',
 WGSTTestwFDR(Humann3Source, 'FRUCTANSENSITIVE', 'kruskal.Humann3.BAndBS.101322', '# Gene Family', diet=['B', 'BS'])
 
 
-MetabolitesSource = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/sourceData/1011MetabolitesX.txt'
+MetabolitesSource = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/source/1011MetabolitesX.txt'
 print("WTF")
 WGSTTestwFDR(MetabolitesSource, 'FRUCTANSENSITIVE', 'kruskal.Metabolites.all.101322', '# Gene Family')
 WGSTTestwFDR(MetabolitesSource, 'FRUCTANSENSITIVE', 'kruskal.Metabolites.A.101322', '# Gene Family', diet='A')
@@ -265,7 +255,7 @@ WGSTTestwFDR(MetabolitesSource, 'FRUCTANSENSITIVE', 'kruskal.Metabolites.AAndBS.
 WGSTTestwFDR(MetabolitesSource, 'FRUCTANSENSITIVE', 'kruskal.Metabolites.BAndBS.101322', '# Gene Family', diet=['B', 'BS'])
 
 
-MetaphlanSource = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/sourceData/1011MetaphlanX.txt'
+MetaphlanSource = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/source/1011MetaphlanX.txt'
 print("WTF")
 WGSTTestwFDR(MetaphlanSource, 'FRUCTANSENSITIVE', 'kruskal.Metaphlan.all.101322', '# Gene Family')
 WGSTTestwFDR(MetaphlanSource, 'FRUCTANSENSITIVE', 'kruskal.Metaphlan.A.101322', '# Gene Family', diet='A')
