@@ -268,26 +268,26 @@ def per_diet_heatmap(csv_path_l, result_path_l, omicNames, csv_colNames, out):
 
 
 
-all_heatmap("./filteredOutputs/humann3KruskalFinalFeatures_all_heatmapOutput.csv", "./kruskalOutputs/kruskal.Humann3.all.101322heatmapSampleMatch.csv","./kruskalOutputs/kruskal.Humann3.all.101322aovResults.xls", "humann3_all.pdf")
+# all_heatmap("./filteredOutputs/humann3KruskalFinalFeatures_all_heatmapOutput.csv", "./kruskalOutputs/kruskal.Humann3.all.101322heatmapSampleMatch.csv","./kruskalOutputs/kruskal.Humann3.all.101322aovResults.xls", "humann3_all.pdf")
 
-all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_A_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.A.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Lipids.A.101322aovResults.xls", "lipidomics_A.pdf")
-all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_AAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.AAndB.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Lipids.AAndB.101322aovResults.xls","lipidomics_AAndB.pdf")
-all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_AAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.AAndBS.101322heatmapSampleMatch.csv","./kruskalOutputs/kruskal.Lipids.AAndBS.101322aovResults.xls", "lipidomics_AAndBS.pdf")
-all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_all_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.all.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Lipids.all.101322aovResults.xls", "lipidomics_all.pdf")
-all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_BAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.BAndBS.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Lipids.BAndBS.101322aovResults.xls","lipidomics_BAndBS.pdf")
-all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_BS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.BS.101322heatmapSampleMatch.csv","./kruskalOutputs/kruskal.Lipids.BS.101322aovResults.xls", "lipidomics_BS.pdf")
+# all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_A_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.A.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Lipids.A.101322aovResults.xls", "lipidomics_A.pdf")
+all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_AAndB_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.AAndB.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Lipids.AAndB.101322aovResults.xls","lipidomics_AAndB.pdf")
+# all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_AAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.AAndBS.101322heatmapSampleMatch.csv","./kruskalOutputs/kruskal.Lipids.AAndBS.101322aovResults.xls", "lipidomics_AAndBS.pdf")
+# all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_all_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.all.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Lipids.all.101322aovResults.xls", "lipidomics_all.pdf")
+# all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_BAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.BAndBS.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Lipids.BAndBS.101322aovResults.xls","lipidomics_BAndBS.pdf")
+# all_heatmap("./filteredOutputs/lipidomicsKruskalFinalFeatures_BS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.BS.101322heatmapSampleMatch.csv","./kruskalOutputs/kruskal.Lipids.BS.101322aovResults.xls", "lipidomics_BS.pdf")
 
-all_heatmap("./filteredOutputs/metabolitesKruskalFinalFeatures_AAndB_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.AAndB.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Metabolites.AAndB.101322aovResults.xls","metabolites_AAndB.pdf")
-all_heatmap("./filteredOutputs/metabolitesKruskalFinalFeatures_AAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.AAndBS.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metabolites.AAndBS.101322aovResults.xls", "metabolites_AAndBS.pdf")
-all_heatmap("./filteredOutputs/metabolitesKruskalFinalFeatures_all_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metabolites.all.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metabolites.all.101322aovResults.xls","metabolites_all.pdf")
-all_heatmap("./filteredOutputs/metabolitesKruskalFinalFeatures_BAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metabolites.BAndBS.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metabolites.BAndBS.101322aovResults.xls","metabolites_BAndBS.pdf")
+# all_heatmap("./filteredOutputs/metabolitesKruskalFinalFeatures_AAndB_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.AAndB.101322heatmapSampleMatch.csv", "./kruskalOutputs/kruskal.Metabolites.AAndB.101322aovResults.xls","metabolites_AAndB.pdf")
+# all_heatmap("./filteredOutputs/metabolitesKruskalFinalFeatures_AAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Lipids.AAndBS.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metabolites.AAndBS.101322aovResults.xls", "metabolites_AAndBS.pdf")
+# all_heatmap("./filteredOutputs/metabolitesKruskalFinalFeatures_all_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metabolites.all.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metabolites.all.101322aovResults.xls","metabolites_all.pdf")
+# all_heatmap("./filteredOutputs/metabolitesKruskalFinalFeatures_BAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metabolites.BAndBS.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metabolites.BAndBS.101322aovResults.xls","metabolites_BAndBS.pdf")
 
-all_heatmap("./filteredOutputs/metaphlanKruskalFinalFeatures_AAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metaphlan.AAndBS.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metaphlan.AAndB.101322aovResults.xls", "metaphlan_AAndBS.pdf")
-all_heatmap("./filteredOutputs/metaphlanKruskalFinalFeatures_all_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metaphlan.all.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metaphlan.all.101322aovResults.xls", "metaphlan_all.pdf")
+# all_heatmap("./filteredOutputs/metaphlanKruskalFinalFeatures_AAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metaphlan.AAndBS.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metaphlan.AAndB.101322aovResults.xls", "metaphlan_AAndBS.pdf")
+# all_heatmap("./filteredOutputs/metaphlanKruskalFinalFeatures_all_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metaphlan.all.101322heatmapSampleMatch.csv",  "./kruskalOutputs/kruskal.Metaphlan.all.101322aovResults.xls", "metaphlan_all.pdf")
 
 
 
-# all
+# # all
 # all_csv_path_l = ["./filteredOutputs/humann3KruskalFinalFeatures_all_heatmapOutput.csv",
 # "./filteredOutputs/lipidomicsKruskalFinalFeatures_all_heatmapOutput.csv",
 # "./filteredOutputs/metabolitesKruskalFinalFeatures_all_heatmapOutput.csv",
@@ -308,20 +308,20 @@ all_heatmap("./filteredOutputs/metaphlanKruskalFinalFeatures_all_heatmapOutput.c
 
 # per_diet_heatmap(all_csv_path_l, result_file_l, omicNames_all, all_csv_colNames, "allDiet.pdf")
 
-# # AAndB
+# AAndB
 
-# all_csv_path_l = ["./filteredOutputs/lipidomicsKruskalFinalFeatures_AAndB_heatmapOutput.csv",
-#         "./filteredOutputs/metabolitesKruskalFinalFeatures_AAndB_heatmapOutput.csv",]
+all_csv_path_l = ["./filteredOutputs/lipidomicsKruskalFinalFeatures_AAndB_heatmapOutput.csv",
+        "./filteredOutputs/metabolitesKruskalFinalFeatures_AAndB_heatmapOutput.csv",]
 
-# omicNames_all = ['lipidomics', 'metabolites']
+omicNames_all = ['lipidomics', 'metabolites']
 
-# result_file_l = ['/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/kruskalOutputs/kruskal.Lipids.AAndB.101322aovResults.xls',
-# '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/kruskalOutputs/kruskal.Metabolites.AAndB.101322aovResults.xls']
+result_file_l = ['/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/kruskalOutputs/kruskal.Lipids.AAndB.101322aovResults.xls',
+'/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/kruskalOutputs/kruskal.Metabolites.AAndB.101322aovResults.xls']
 
-# all_csv_colNames = ["./kruskalOutputs/kruskal.Lipids.AAndB.101322heatmapSampleMatch.csv",
-#             "./kruskalOutputs/kruskal.Metabolites.AAndB.101322heatmapSampleMatch.csv"]
+all_csv_colNames = ["./kruskalOutputs/kruskal.Lipids.AAndB.101322heatmapSampleMatch.csv",
+            "./kruskalOutputs/kruskal.Metabolites.AAndB.101322heatmapSampleMatch.csv"]
 
-# per_diet_heatmap(all_csv_path_l, result_file_l, omicNames_all, all_csv_colNames, "AAndBDiet.pdf")
+per_diet_heatmap(all_csv_path_l, result_file_l, omicNames_all, all_csv_colNames, "AAndBDietAAA.pdf")
 
 
 # # AAndBS
