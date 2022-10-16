@@ -1,0 +1,461 @@
+,TaxoName,Diets
+0,CE(14:1),"['all', 'AAndBS', 'BS']"
+1,CE(18:3),"['all', 'AAndBS', 'BS']"
+2,CER(16:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+3,CER(18:0),"['all', 'AAndBS', 'BS']"
+4,CER(20:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+5,CER(22:0),"['all', 'AAndBS', 'BS']"
+6,CER(22:1),"['all', 'AAndBS', 'BAndBS', 'BS']"
+7,CER(24:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+8,CER(24:1),"['all', 'AAndBS', 'BS']"
+9,DAG(16:1/18:3),"['all', 'A', 'AAndBS', 'BS']"
+10,DCER(22:0),"['all', 'AAndBS', 'BS']"
+11,FFA(18:0),"['all', 'AAndBS']"
+12,FFA(18:1),"['all', 'AAndBS', 'BS']"
+13,FFA(20:0),"['all', 'AAndBS', 'BS']"
+14,FFA(20:1),"['all', 'AAndBS']"
+15,FFA(22:0),"['all', 'AAndBS']"
+16,HCER(22:1),"['all', 'AAndBS', 'BS']"
+17,HCER(26:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+18,HCER(26:1),"['all', 'AAndBS', 'BS']"
+19,LCER(14:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+20,LCER(16:0),"['all', 'AAndBS', 'BS']"
+21,LCER(18:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+22,LCER(18:1),"['all', 'AAndBS', 'BS']"
+23,LCER(20:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+24,LCER(20:1),"['all', 'AAndBS', 'BAndBS', 'BS']"
+25,LCER(22:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+26,LCER(22:1),"['all', 'AAndBS', 'BAndBS', 'BS']"
+27,LCER(24:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+28,LCER(24:1),"['all', 'AAndBS', 'BS']"
+29,LCER(26:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+30,LCER(26:1),"['all', 'AAndBS', 'BAndBS', 'BS']"
+31,LPC(16:0),"['all', 'A', 'AAndBS']"
+32,LPC(18:0),"['all', 'AAndBS', 'BS']"
+33,LPC(18:1),"['all', 'A', 'AAndB', 'AAndBS']"
+34,LPC(18:2),"['all', 'AAndBS']"
+35,LPE(15:0),"['all', 'AAndB', 'AAndBS', 'BAndBS', 'BS']"
+36,LPE(16:0),"['all', 'AAndB', 'AAndBS', 'BAndBS', 'BS']"
+37,LPE(16:1),"['all', 'AAndB', 'AAndBS']"
+38,LPE(17:0),"['all', 'A', 'AAndBS', 'BAndBS', 'BS']"
+39,LPE(18:0),"['all', 'AAndBS']"
+40,LPE(18:1),"['all', 'A', 'AAndB', 'AAndBS']"
+41,LPE(20:1),"['all', 'AAndBS']"
+42,MAG(15:0),"['all', 'AAndBS', 'BAndBS', 'BS']"
+43,MAG(16:0),"['all', 'AAndBS']"
+44,MAG(16:1),"['all', 'A', 'AAndB', 'AAndBS', 'BS']"
+45,MAG(17:0),"['all', 'AAndBS']"
+46,MAG(18:0),"['all', 'AAndBS']"
+47,MAG(18:3),"['all', 'AAndBS', 'BS']"
+48,MAG(20:0),"['all', 'A', 'AAndBS', 'BS']"
+49,MAG(20:1),"['all', 'AAndBS', 'BS']"
+50,MAG(20:2),"['all', 'AAndBS', 'BS']"
+51,MAG(20:3),"['all', 'AAndBS', 'BS']"
+52,MAG(20:5),"['all', 'AAndBS', 'BS']"
+53,MAG(22:1),"['all', 'AAndBS', 'BS']"
+54,MAG(22:5),"['all', 'AAndBS']"
+55,MAG(24:0),"['all', 'AAndBS', 'BS']"
+56,PC(16:0/16:0),['all']
+57,PE(16:0/15:0),"['all', 'AAndBS', 'BS']"
+58,PE(16:0/16:1),"['all', 'AAndBS', 'BS']"
+59,PE(O-16:0/16:0),"['all', 'AAndBS', 'BS']"
+60,PE(P-16:0/16:1),"['all', 'AAndBS']"
+61,PE(P-18:1/16:0),"['all', 'AAndBS']"
+62,SM(18:0),"['all', 'AAndBS']"
+63,SM(18:1),"['all', 'AAndBS']"
+64,SM(22:1),['all']
+65,SM(24:0),"['all', 'AAndBS', 'BS']"
+66,TAG44:2-FA16:1,"['all', 'AAndBS']"
+67,TAG45:1-FA15:0,"['all', 'AAndBS']"
+68,TAG46:1-FA14:1,"['all', 'AAndBS', 'BS']"
+69,TAG46:3-FA16:1,"['all', 'A', 'AAndBS']"
+70,TAG48:1-FA14:1,"['all', 'AAndBS', 'BS']"
+71,TAG49:1-FA14:0,"['all', 'A', 'AAndBS']"
+72,TAG49:1-FA17:0,"['all', 'AAndBS', 'BS']"
+73,TAG49:3-FA15:0,"['all', 'AAndBS', 'BS']"
+74,TAG51:2-FA16:1,"['all', 'AAndBS']"
+75,TAG52:1-FA16:1,"['all', 'AAndBS', 'BS']"
+76,TAG52:2-FA20:1,"['all', 'AAndBS', 'BS']"
+77,TAG52:3-FA20:1,"['all', 'AAndBS', 'BS']"
+78,TAG52:6-FA20:4,"['all', 'AAndBS', 'BS']"
+79,TAG52:7-FA22:6,"['all', 'AAndBS', 'BS']"
+80,TAG52:8-FA16:1,"['all', 'A', 'AAndBS', 'BS']"
+81,TAG53:1-FA18:0,"['all', 'AAndBS', 'BS']"
+82,TAG53:5-FA20:4,"['all', 'AAndBS', 'BS']"
+83,TAG54:5-FA22:4,"['all', 'AAndBS', 'BS']"
+84,TAG54:5-FA22:5,"['all', 'AAndBS', 'BS']"
+85,TAG54:7-FA22:6,"['all', 'AAndBS', 'BS']"
+86,TAG54:8-FA20:4,"['all', 'AAndBS', 'BS']"
+87,TAG55:5-FA20:4,"['all', 'AAndBS', 'BAndBS', 'BS']"
+88,TAG56:5-FA22:5,"['all', 'AAndBS', 'BS']"
+89,TAG56:7-FA22:4,"['all', 'AAndBS', 'BS']"
+90,TAG56:8-FA16:0,"['all', 'AAndBS', 'BS']"
+91,TAG56:8-FA16:1,"['all', 'AAndBS']"
+92,TAG56:8-FA18:3,"['all', 'AAndBS', 'BS']"
+93,TAG58:8-FA20:3,"['all', 'AAndBS']"
+94,TAG60:11-FA22:5,"['all', 'AAndBS', 'BS']"
+95,TAG60:11-FA22:6,"['all', 'AAndBS', 'BS']"
+96,TAG42:1-FA16:1,"['A', 'AAndBS']"
+97,TAG46:2-FA14:1,"['A', 'AAndBS']"
+98,CE(14:0),['AAndBS']
+99,CE(16:0),['AAndBS']
+100,CE(16:1),['AAndBS']
+101,CE(17:0),"['AAndBS', 'BS']"
+102,CE(18:2),['AAndBS']
+103,CE(18:4),"['AAndBS', 'BS']"
+104,CE(22:4),"['AAndBS', 'BS']"
+105,DAG(14:0/18:3),"['AAndBS', 'BS']"
+106,DAG(16:0/16:1),"['AAndBS', 'BS']"
+107,DAG(16:0/18:3),"['AAndBS', 'BS']"
+108,DAG(16:0/20:5),"['AAndBS', 'BS']"
+109,DAG(16:0/22:5),"['AAndBS', 'BS']"
+110,DAG(16:1/16:1),['AAndBS']
+111,DAG(16:1/18:0),"['AAndBS', 'BS']"
+112,DAG(16:1/18:1),"['AAndBS', 'BS']"
+113,DAG(16:1/18:2),"['AAndBS', 'BS']"
+114,DAG(16:1/20:0),"['AAndBS', 'BS']"
+115,DAG(16:1/20:2),"['AAndBS', 'BS']"
+116,DAG(16:1/20:4),"['AAndBS', 'BS']"
+117,DAG(18:0/18:3),"['AAndBS', 'BS']"
+118,DAG(18:1/20:2),['AAndBS']
+119,DAG(18:1/20:3),"['AAndBS', 'BS']"
+120,DAG(18:1/20:4),"['AAndBS', 'BS']"
+121,DAG(18:1/22:4),"['AAndBS', 'BS']"
+122,DAG(18:1/22:5),"['AAndBS', 'BS']"
+123,DAG(18:1/22:6),"['AAndBS', 'BS']"
+124,DAG(18:2/22:4),"['AAndBS', 'BS']"
+125,DAG(18:2/22:5),"['AAndBS', 'BS']"
+126,DAG(18:2/22:6),['AAndBS']
+127,DCER(22:1),"['AAndBS', 'BS']"
+128,FFA(12:0),"['AAndBS', 'BS']"
+129,FFA(20:4),['AAndBS']
+130,FFA(24:0),['AAndBS']
+131,FFA(24:1),['AAndBS']
+132,HCER(18:0),['AAndBS']
+133,HCER(18:1),['AAndBS']
+134,HCER(20:1),['AAndBS']
+135,HCER(24:0),['AAndBS']
+136,HCER(24:1),"['AAndBS', 'BS']"
+137,LPC(20:1),['AAndBS']
+138,LPE(18:2),['AAndBS']
+139,MAG(18:1),['AAndBS']
+140,MAG(18:2),['AAndBS']
+141,MAG(20:4),['AAndBS']
+142,MAG(22:0),"['AAndBS', 'BS']"
+143,MAG(22:2),"['AAndBS', 'BS']"
+144,MAG(22:4),['AAndBS']
+145,PC(18:0/12:0),['AAndBS']
+146,PE(14:0/18:2),['AAndBS']
+147,PE(15:0/22:6),['AAndBS']
+148,PE(17:0/18:1),"['AAndBS', 'BS']"
+149,PE(P-18:2/18:2),['AAndBS']
+150,PI(16:0/16:1),['AAndBS']
+151,PI(16:0/18:3),['AAndBS']
+152,PI(18:1/18:2),['AAndBS']
+153,PI(18:2/18:2),"['AAndBS', 'BS']"
+154,SM(16:0),['AAndBS']
+155,SM(20:0),['AAndBS']
+156,SM(24:1),['AAndBS']
+157,SM(26:1),['AAndBS']
+158,TAG42:1-FA14:0,['AAndBS']
+159,TAG44:1-FA14:1,['AAndBS']
+160,TAG44:1-FA16:0,['AAndBS']
+161,TAG44:1-FA16:1,['AAndBS']
+162,TAG45:0-FA14:0,['AAndBS']
+163,TAG45:0-FA15:0,['AAndBS']
+164,TAG45:0-FA16:0,['AAndBS']
+165,TAG45:1-FA16:0,['AAndBS']
+166,TAG46:1-FA14:0,['AAndBS']
+167,TAG46:1-FA16:1,['AAndBS']
+168,TAG46:1-FA18:0,['AAndBS']
+169,TAG46:2-FA14:0,['AAndBS']
+170,TAG46:2-FA16:0,['AAndBS']
+171,TAG46:2-FA16:1,['AAndBS']
+172,TAG46:3-FA14:1,"['AAndBS', 'BS']"
+173,TAG46:4-FA18:2,['AAndBS']
+174,TAG47:0-FA14:0,['AAndBS']
+175,TAG47:0-FA17:0,['AAndBS']
+176,TAG47:1-FA14:0,['AAndBS']
+177,TAG47:1-FA15:0,['AAndBS']
+178,TAG47:1-FA16:0,['AAndBS']
+179,TAG47:1-FA16:1,['AAndBS']
+180,TAG47:1-FA17:0,['AAndBS']
+181,TAG47:1-FA18:1,['AAndBS']
+182,TAG47:2-FA14:0,"['AAndBS', 'BS']"
+183,TAG47:2-FA15:0,"['AAndBS', 'BS']"
+184,TAG47:2-FA18:2,"['AAndBS', 'BS']"
+185,TAG48:1-FA16:0,"['AAndBS', 'BS']"
+186,TAG48:1-FA16:1,['AAndBS']
+187,TAG48:1-FA18:0,"['AAndBS', 'BS']"
+188,TAG48:1-FA18:1,['AAndBS']
+189,TAG48:2-FA14:1,['AAndBS']
+190,TAG48:2-FA16:0,['AAndBS']
+191,TAG48:2-FA16:1,['AAndBS']
+192,TAG48:2-FA18:0,['AAndBS']
+193,TAG48:3-FA14:0,"['AAndBS', 'BS']"
+194,TAG48:3-FA14:1,['AAndBS']
+195,TAG48:3-FA16:0,"['AAndBS', 'BS']"
+196,TAG48:3-FA18:1,['AAndBS']
+197,TAG48:4-FA14:0,"['AAndBS', 'BS']"
+198,TAG48:4-FA14:1,"['AAndBS', 'BS']"
+199,TAG48:4-FA16:1,"['AAndBS', 'BS']"
+200,TAG48:4-FA20:4,"['AAndBS', 'BS']"
+201,TAG48:5-FA18:3,"['AAndBS', 'BS']"
+202,TAG49:0-FA15:0,"['AAndBS', 'BS']"
+203,TAG49:0-FA16:0,['AAndBS']
+204,TAG49:0-FA17:0,['AAndBS']
+205,TAG49:0-FA18:0,['AAndBS']
+206,TAG49:1-FA15:0,"['AAndBS', 'BS']"
+207,TAG49:1-FA16:0,"['AAndBS', 'BS']"
+208,TAG49:1-FA16:1,['AAndBS']
+209,TAG49:1-FA18:1,['AAndBS']
+210,TAG49:2-FA14:0,['AAndBS']
+211,TAG49:2-FA15:0,"['AAndBS', 'BS']"
+212,TAG49:2-FA16:0,['AAndBS']
+213,TAG49:2-FA16:1,['AAndBS']
+214,TAG49:2-FA17:0,"['AAndBS', 'BS']"
+215,TAG49:2-FA18:2,['AAndBS']
+216,TAG49:3-FA16:0,"['AAndBS', 'BS']"
+217,TAG49:3-FA16:1,['AAndBS']
+218,TAG49:3-FA18:3,"['AAndBS', 'BS']"
+219,TAG50:1-FA14:0,"['AAndBS', 'BS']"
+220,TAG50:1-FA16:1,"['AAndBS', 'BS']"
+221,TAG50:1-FA18:0,"['AAndBS', 'BS']"
+222,TAG50:1-FA20:1,"['AAndBS', 'BS']"
+223,TAG50:2-FA14:0,['AAndBS']
+224,TAG50:2-FA14:1,"['AAndBS', 'BS']"
+225,TAG50:2-FA16:1,['AAndBS']
+226,TAG50:2-FA18:0,"['AAndBS', 'BS']"
+227,TAG50:2-FA18:1,"['AAndBS', 'BS']"
+228,TAG50:2-FA20:2,"['AAndBS', 'BS']"
+229,TAG50:3-FA14:1,['AAndBS']
+230,TAG50:3-FA18:0,"['AAndBS', 'BS']"
+231,TAG50:4-FA14:1,['AAndBS']
+232,TAG50:4-FA16:0,"['AAndBS', 'BS']"
+233,TAG50:4-FA16:1,['AAndBS']
+234,TAG50:4-FA18:1,['AAndBS']
+235,TAG50:4-FA18:3,"['AAndBS', 'BS']"
+236,TAG50:5-FA14:0,"['AAndBS', 'BS']"
+237,TAG50:5-FA14:1,"['AAndBS', 'BS']"
+238,TAG50:5-FA16:0,"['AAndBS', 'BS']"
+239,TAG50:5-FA16:1,"['AAndBS', 'BS']"
+240,TAG50:5-FA18:2,"['AAndBS', 'BS']"
+241,TAG50:5-FA18:3,"['AAndBS', 'BS']"
+242,TAG50:5-FA20:5,"['AAndBS', 'BS']"
+243,TAG51:0-FA17:0,['AAndBS']
+244,TAG51:1-FA15:0,"['AAndBS', 'BS']"
+245,TAG51:1-FA16:0,"['AAndBS', 'BS']"
+246,TAG51:1-FA17:0,['AAndBS']
+247,TAG51:1-FA18:0,['AAndBS']
+248,TAG51:1-FA18:1,['AAndBS']
+249,TAG51:2-FA15:0,"['AAndBS', 'BS']"
+250,TAG51:2-FA16:0,['AAndBS']
+251,TAG51:2-FA17:0,['AAndBS']
+252,TAG51:2-FA18:1,['AAndBS']
+253,TAG51:3-FA16:1,['AAndBS']
+254,TAG51:3-FA17:0,"['AAndBS', 'BS']"
+255,TAG51:3-FA18:3,"['AAndBS', 'BS']"
+256,TAG51:4-FA16:0,['AAndBS']
+257,TAG51:4-FA16:1,['AAndBS']
+258,TAG51:4-FA18:2,"['AAndBS', 'BS']"
+259,TAG51:4-FA18:3,"['AAndBS', 'BS']"
+260,TAG51:4-FA20:4,"['AAndBS', 'BS']"
+261,TAG51:5-FA18:2,"['AAndBS', 'BS']"
+262,TAG51:5-FA18:3,"['AAndBS', 'BS']"
+263,TAG52:1-FA16:0,"['AAndBS', 'BS']"
+264,TAG52:1-FA18:0,"['AAndBS', 'BS']"
+265,TAG52:1-FA18:1,"['AAndBS', 'BS']"
+266,TAG52:1-FA20:0,"['AAndBS', 'BS']"
+267,TAG52:1-FA20:1,"['AAndBS', 'BS']"
+268,TAG52:2-FA14:0,['AAndBS']
+269,TAG52:2-FA16:1,"['AAndBS', 'BS']"
+270,TAG52:2-FA20:0,"['AAndBS', 'BS']"
+271,TAG52:2-FA20:2,['AAndBS']
+272,TAG52:3-FA14:0,['AAndBS']
+273,TAG52:3-FA16:1,['AAndBS']
+274,TAG52:3-FA18:0,"['AAndBS', 'BS']"
+275,TAG52:3-FA18:3,"['AAndBS', 'BS']"
+276,TAG52:3-FA20:0,"['AAndBS', 'BS']"
+277,TAG52:3-FA20:2,"['AAndBS', 'BS']"
+278,TAG52:3-FA20:3,"['AAndBS', 'BS']"
+279,TAG52:3-FA22:1,"['AAndBS', 'BS']"
+280,TAG52:4-FA14:0,"['AAndBS', 'BS']"
+281,TAG52:4-FA18:0,['AAndBS']
+282,TAG52:4-FA18:1,['AAndBS']
+283,TAG52:4-FA20:2,"['AAndBS', 'BS']"
+284,TAG52:4-FA20:3,"['AAndBS', 'BS']"
+285,TAG52:4-FA20:4,"['AAndBS', 'BS']"
+286,TAG52:4-FA22:1,"['AAndBS', 'BS']"
+287,TAG52:4-FA22:4,['AAndBS']
+288,TAG52:5-FA14:0,"['AAndBS', 'BS']"
+289,TAG52:5-FA18:1,"['AAndBS', 'BS']"
+290,TAG52:5-FA20:4,"['AAndBS', 'BS']"
+291,TAG52:5-FA20:5,"['AAndBS', 'BS']"
+292,TAG52:5-FA22:5,"['AAndBS', 'BS']"
+293,TAG52:6-FA14:0,"['AAndBS', 'BS']"
+294,TAG52:6-FA16:0,"['AAndBS', 'BS']"
+295,TAG52:6-FA16:1,"['AAndBS', 'BS']"
+296,TAG52:6-FA18:2,"['AAndBS', 'BS']"
+297,TAG52:6-FA18:3,"['AAndBS', 'BS']"
+298,TAG52:6-FA20:5,"['AAndBS', 'BS']"
+299,TAG52:6-FA22:6,"['AAndBS', 'BS']"
+300,TAG52:8-FA18:2,"['AAndBS', 'BS']"
+301,TAG53:0-FA16:0,"['AAndBS', 'BS']"
+302,TAG53:1-FA16:0,"['AAndBS', 'BS']"
+303,TAG53:1-FA17:0,"['AAndBS', 'BS']"
+304,TAG53:1-FA18:1,['AAndBS']
+305,TAG53:2-FA17:0,"['AAndBS', 'BS']"
+306,TAG53:2-FA18:0,['AAndBS']
+307,TAG53:2-FA18:1,['AAndBS']
+308,TAG53:2-FA18:2,"['AAndBS', 'BS']"
+309,TAG53:3-FA18:1,"['AAndBS', 'BS']"
+310,TAG53:4-FA18:3,"['AAndBS', 'BS']"
+311,TAG53:4-FA20:4,"['AAndBS', 'BS']"
+312,TAG53:5-FA18:3,"['AAndBS', 'BS']"
+313,TAG53:6-FA20:4,"['AAndBS', 'BS']"
+314,TAG54:1-FA18:0,"['AAndBS', 'BS']"
+315,TAG54:1-FA18:1,"['AAndBS', 'BS']"
+316,TAG54:1-FA20:1,"['AAndBS', 'BS']"
+317,TAG54:2-FA18:0,"['AAndBS', 'BS']"
+318,TAG54:2-FA18:1,['AAndBS']
+319,TAG54:2-FA18:2,"['AAndBS', 'BS']"
+320,TAG54:2-FA20:0,"['AAndBS', 'BS']"
+321,TAG54:3-FA16:1,"['AAndBS', 'BS']"
+322,TAG54:3-FA18:3,"['AAndBS', 'BS']"
+323,TAG54:3-FA20:3,"['AAndBS', 'BS']"
+324,TAG54:4-FA16:0,"['AAndBS', 'BS']"
+325,TAG54:4-FA16:1,['AAndBS']
+326,TAG54:4-FA18:3,['AAndBS']
+327,TAG54:4-FA20:1,"['AAndBS', 'BS']"
+328,TAG54:4-FA20:2,"['AAndBS', 'BS']"
+329,TAG54:4-FA20:3,"['AAndBS', 'BS']"
+330,TAG54:4-FA20:4,"['AAndBS', 'BS']"
+331,TAG54:4-FA22:1,['AAndBS']
+332,TAG54:4-FA22:4,"['AAndBS', 'BS']"
+333,TAG54:5-FA16:0,"['AAndBS', 'BS']"
+334,TAG54:5-FA16:1,"['AAndBS', 'BS']"
+335,TAG54:5-FA18:0,['AAndBS']
+336,TAG54:5-FA20:2,"['AAndBS', 'BS']"
+337,TAG54:5-FA20:3,"['AAndBS', 'BS']"
+338,TAG54:5-FA20:4,"['AAndBS', 'BS']"
+339,TAG54:5-FA20:5,"['AAndBS', 'BS']"
+340,TAG54:6-FA16:0,"['AAndBS', 'BS']"
+341,TAG54:6-FA20:3,['AAndBS']
+342,TAG54:6-FA20:4,"['AAndBS', 'BS']"
+343,TAG54:6-FA20:5,"['AAndBS', 'BS']"
+344,TAG54:6-FA22:5,['AAndBS']
+345,TAG54:6-FA22:6,['AAndBS']
+346,TAG54:7-FA16:1,"['AAndBS', 'BS']"
+347,TAG54:7-FA20:4,"['AAndBS', 'BS']"
+348,TAG54:7-FA20:5,['AAndBS']
+349,TAG54:7-FA22:5,"['AAndBS', 'BS']"
+350,TAG54:8-FA20:5,"['AAndBS', 'BS']"
+351,TAG54:8-FA22:6,"['AAndBS', 'BS']"
+352,TAG55:1-FA16:0,['AAndBS']
+353,TAG55:6-FA20:4,"['AAndBS', 'BS']"
+354,TAG55:7-FA15:0,"['AAndBS', 'BS']"
+355,TAG55:7-FA18:1,"['AAndBS', 'BS']"
+356,TAG56:2-FA18:0,"['AAndBS', 'BS']"
+357,TAG56:2-FA20:1,"['AAndBS', 'BS']"
+358,TAG56:3-FA16:0,['AAndBS']
+359,TAG56:3-FA18:0,"['AAndBS', 'BS']"
+360,TAG56:3-FA20:2,['AAndBS']
+361,TAG56:4-FA16:0,"['AAndBS', 'BS']"
+362,TAG56:4-FA18:0,['AAndBS']
+363,TAG56:4-FA20:2,"['AAndBS', 'BS']"
+364,TAG56:4-FA20:3,"['AAndBS', 'BS']"
+365,TAG56:4-FA20:4,['AAndBS']
+366,TAG56:4-FA22:4,"['AAndBS', 'BS']"
+367,TAG56:5-FA18:1,"['AAndBS', 'BS']"
+368,TAG56:5-FA20:1,['AAndBS']
+369,TAG56:5-FA20:2,['AAndBS']
+370,TAG56:5-FA20:3,"['AAndBS', 'BS']"
+371,TAG56:5-FA20:4,"['AAndBS', 'BS']"
+372,TAG56:5-FA22:4,"['AAndBS', 'BS']"
+373,TAG56:6-FA18:0,"['AAndBS', 'BS']"
+374,TAG56:6-FA18:1,['AAndBS']
+375,TAG56:6-FA18:3,"['AAndBS', 'BS']"
+376,TAG56:6-FA20:2,"['AAndBS', 'BS']"
+377,TAG56:6-FA20:3,"['AAndBS', 'BS']"
+378,TAG56:6-FA20:4,"['AAndBS', 'BS']"
+379,TAG56:6-FA22:4,"['AAndBS', 'BS']"
+380,TAG56:6-FA22:5,"['AAndBS', 'BS']"
+381,TAG56:6-FA22:6,"['AAndBS', 'BS']"
+382,TAG56:7-FA16:0,"['AAndBS', 'BS']"
+383,TAG56:7-FA18:2,"['AAndBS', 'BS']"
+384,TAG56:7-FA18:3,"['AAndBS', 'BS']"
+385,TAG56:7-FA20:3,"['AAndBS', 'BS']"
+386,TAG56:7-FA20:4,['AAndBS']
+387,TAG56:7-FA20:5,"['AAndBS', 'BS']"
+388,TAG56:7-FA22:5,"['AAndBS', 'BS']"
+389,TAG56:7-FA22:6,['AAndBS']
+390,TAG56:8-FA18:2,"['AAndBS', 'BS']"
+391,TAG56:8-FA20:4,['AAndBS']
+392,TAG56:8-FA22:5,"['AAndBS', 'BS']"
+393,TAG56:8-FA22:6,"['AAndBS', 'BS']"
+394,TAG56:9-FA18:3,"['AAndBS', 'BS']"
+395,TAG56:9-FA20:4,"['AAndBS', 'BS']"
+396,TAG56:9-FA22:6,"['AAndBS', 'BS']"
+397,TAG57:2-FA18:1,['AAndBS']
+398,TAG57:3-FA18:2,"['AAndBS', 'BS']"
+399,TAG57:8-FA22:6,"['AAndBS', 'BS']"
+400,TAG58:10-FA18:2,"['AAndBS', 'BS']"
+401,TAG58:10-FA20:4,['AAndBS']
+402,TAG58:10-FA22:5,"['AAndBS', 'BS']"
+403,TAG58:10-FA22:6,"['AAndBS', 'BS']"
+404,TAG58:6-FA16:0,"['AAndBS', 'BS']"
+405,TAG58:6-FA20:4,"['AAndBS', 'BS']"
+406,TAG58:6-FA22:4,['AAndBS']
+407,TAG58:6-FA22:5,"['AAndBS', 'BS']"
+408,TAG58:7-FA16:0,"['AAndBS', 'BS']"
+409,TAG58:7-FA18:0,"['AAndBS', 'BS']"
+410,TAG58:7-FA20:4,"['AAndBS', 'BS']"
+411,TAG58:7-FA22:4,"['AAndBS', 'BS']"
+412,TAG58:7-FA22:5,"['AAndBS', 'BS']"
+413,TAG58:7-FA22:6,"['AAndBS', 'BS']"
+414,TAG58:8-FA18:1,['AAndBS']
+415,TAG58:8-FA20:4,"['AAndBS', 'BS']"
+416,TAG58:8-FA22:5,"['AAndBS', 'BS']"
+417,TAG58:8-FA22:6,"['AAndBS', 'BS']"
+418,TAG58:9-FA18:1,['AAndBS']
+419,TAG58:9-FA20:4,['AAndBS']
+420,TAG58:9-FA22:5,"['AAndBS', 'BS']"
+421,TAG58:9-FA22:6,"['AAndBS', 'BS']"
+422,TAG60:10-FA22:5,['AAndBS']
+423,TAG60:10-FA22:6,"['AAndBS', 'BS']"
+424,TAG60:12-FA22:6,"['AAndBS', 'BS']"
+425,CE(20:1),['BS']
+426,CE(22:0),['BS']
+427,CE(24:1),['BS']
+428,CER(26:1),['BS']
+429,DAG(14:0/20:0),['BS']
+430,DAG(14:0/22:6),['BS']
+431,DAG(16:0/20:3),['BS']
+432,DAG(18:0/18:1),['BS']
+433,DAG(18:0/18:2),['BS']
+434,DAG(18:1/20:1),['BS']
+435,DAG(18:2/20:3),['BS']
+436,DAG(18:2/20:4),['BS']
+437,DCER(24:1),['BS']
+438,FFA(22:2),['BS']
+439,PE(16:0/18:2),['BS']
+440,PE(O-16:0/18:1),['BS']
+441,PE(P-18:0/16:0),['BS']
+442,PI(16:0/18:2),['BS']
+443,TAG46:3-FA16:0,['BS']
+444,TAG48:3-FA18:3,['BS']
+445,TAG48:5-FA18:2,['BS']
+446,TAG50:3-FA16:0,['BS']
+447,TAG50:3-FA18:3,['BS']
+448,TAG50:3-FA20:3,['BS']
+449,TAG50:4-FA20:3,['BS']
+450,TAG50:4-FA20:4,['BS']
+451,TAG50:5-FA20:4,['BS']
+452,TAG50:6-FA20:4,['BS']
+453,TAG52:5-FA18:2,['BS']
+454,TAG52:5-FA20:3,['BS']
+455,TAG53:3-FA18:2,['BS']
+456,TAG53:7-FA18:3,['BS']
+457,TAG54:3-FA20:1,['BS']
+458,TAG55:2-FA18:2,['BS']
+459,TAG58:7-FA18:2,['BS']

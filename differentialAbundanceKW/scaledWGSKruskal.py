@@ -225,7 +225,6 @@ def WGSTTestwFDR(source, differentiator, outRoot, taxoVar, diet=None):
 
 
 LipidomicsSource = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/source/1011LipidomicsX.txt'
-WGSTTestwFDR(LipidomicsSource, 'FRUCTANSENSITIVE', 'kruskal.Lipids.all.101322', '# Gene Family')
 WGSTTestwFDR(LipidomicsSource, 'FRUCTANSENSITIVE', 'kruskal.Lipids.A.101322', '# Gene Family', diet='A')
 WGSTTestwFDR(LipidomicsSource, 'FRUCTANSENSITIVE', 'kruskal.Lipids.B.101322', '# Gene Family', diet='B')
 WGSTTestwFDR(LipidomicsSource, 'FRUCTANSENSITIVE', 'kruskal.Lipids.BS.101322', '# Gene Family', diet='BS')

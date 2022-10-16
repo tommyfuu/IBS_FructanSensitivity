@@ -1,0 +1,5 @@
+,omics,number of biomarkers in total,number enriched in tolerant kids,number enriched in sensitive kids
+0,humann3,6,6,0
+1,lipidomics,96,6,90
+2,metabolites,171,78,93
+3,metaphlan,29,25,4
