@@ -173,7 +173,7 @@ def per_diet_heatmap(csv_path_l, result_path_l, omicNames, csv_colNames, out):
 # all_heatmap("./finalStuff/metaphlanKruskalFinalFeatures_AAndBS_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metaphlan.AAndBS.052522heatmapSampleMatch.csv", '/Users/chenlianfu/Documents/GitHub/IBSFructanCodes/WGS_KruskalWallis/kruskalOutputs/kruskal.Metaphlan.AAndBS.052522aovResults.xls',"metaphlan_AAndBS.pdf")
 # all_heatmap("./finalStuff/metaphlanKruskalFinalFeatures_all_heatmapOutput.csv", "./kruskalOutputs/kruskal.Metaphlan.all.052522heatmapSampleMatch.csv", '/Users/chenlianfu/Documents/GitHub/IBSFructanCodes/WGS_KruskalWallis/kruskalOutputs/kruskal.Metaphlan.all.052522aovResults.xls', "metaphlan_all.pdf")
 
-
+# all
 all_csv_path_l = ["./filteredOutputs/humann3KruskalFinalFeatures_all_heatmapOutput.csv",
 "./filteredOutputs/lipidomicsKruskalFinalFeatures_all_heatmapOutput.csv",
 "./filteredOutputs/metabolitesKruskalFinalFeatures_all_heatmapOutput.csv",
@@ -194,6 +194,24 @@ all_csv_colNames = ["./kruskalOutputs/kruskal.Humann3.all.101322heatmapSampleMat
 
 per_diet_heatmap(all_csv_path_l, result_file_l, omicNames_all, all_csv_colNames, "allDiet.pdf")
 
+# AAndB
+
+all_csv_path_l = ["./filteredOutputs/lipidomicsKruskalFinalFeatures_AAndB_heatmapOutput.csv",
+        "./filteredOutputs/metabolitesKruskalFinalFeatures_AAndB_heatmapOutput.csv",]
+
+omicNames_all = ['lipidomics', 'metabolites']
+
+result_file_l = ['/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/kruskalOutputs/kruskal.Lipids.AAndB.101322aovResults.xls',
+'/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/kruskalOutputs/kruskal.Metabolites.AAndB.101322aovResults.xls']
+
+all_csv_colNames = ["./kruskalOutputs/kruskal.Lipids.AAndB.101322heatmapSampleMatch.csv",
+            "./kruskalOutputs/kruskal.Metabolites.AAndB.101322heatmapSampleMatch.csv"]
+
+per_diet_heatmap(all_csv_path_l, result_file_l, omicNames_all, all_csv_colNames, "AAndBDiet.pdf")
+
+
+# AAndBS
+
 all_csv_path_l = ["./filteredOutputs/lipidomicsKruskalFinalFeatures_AAndBS_heatmapOutput.csv",
 "./filteredOutputs/metabolitesKruskalFinalFeatures_AAndBS_heatmapOutput.csv",
 "./filteredOutputs/metaphlanKruskalFinalFeatures_AAndBS_heatmapOutput.csv"]
@@ -211,6 +229,7 @@ all_csv_colNames = ["./kruskalOutputs/kruskal.Lipids.AAndBS.101322heatmapSampleM
 
 per_diet_heatmap(all_csv_path_l, result_file_l, omicNames_all, all_csv_colNames, "AAndBSDiet.pdf")
 
+# BAndBS
 all_csv_path_l = ["./filteredOutputs/lipidomicsKruskalFinalFeatures_BAndBS_heatmapOutput.csv",
 "./filteredOutputs/metabolitesKruskalFinalFeatures_BAndBS_heatmapOutput.csv"]
 
@@ -225,6 +244,7 @@ all_csv_colNames = ["./kruskalOutputs/kruskal.Lipids.BAndBS.101322heatmapSampleM
 
 per_diet_heatmap(all_csv_path_l, result_file_l, omicNames_all, all_csv_colNames, "BAndBSDiet.pdf")
 
+# BS
 
 all_csv_path_l = ["./filteredOutputs/lipidomicsKruskalFinalFeatures_BS_heatmapOutput.csv"]
 
@@ -235,15 +255,4 @@ result_file_l = ['/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diff
 all_csv_colNames = ["./kruskalOutputs/kruskal.Lipids.BS.101322heatmapSampleMatch.csv"]
 
 per_diet_heatmap(all_csv_path_l, result_file_l, omicNames_all, all_csv_colNames, "BSDiet.pdf")
-
-
-all_csv_path_l = ["./filteredOutputs/metabolitesKruskalFinalFeatures_AAndB_heatmapOutput.csv"]
-
-omicNames_all = ['metabolites']
-
-result_file_l = ['/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/differentialAbundanceKW/kruskalOutputs/kruskal.Metabolites.AAndB.101322aovResults.xls',]
-
-all_csv_colNames = ["./kruskalOutputs/kruskal.Lipids.AAndB.101322heatmapSampleMatch.csv"]
-
-per_diet_heatmap(all_csv_path_l, result_file_l, omicNames_all, all_csv_colNames, "AAndBDiet.pdf")
 
