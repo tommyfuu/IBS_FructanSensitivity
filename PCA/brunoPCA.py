@@ -255,17 +255,34 @@ patientID_colorL = ["black",
 allOmicsX = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/sourceData/4omicsAllX.txt'
 humann3YW = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/sourceData/4omicsAllY_wmetadata.xlsx'
 
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsDietsPCA', columnValue='Diet',
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsDietsPCA', columnValue='Diet',
+#             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsFructanPCA', columnValue='FRUCTANSENSITIVE',
+#             targets=[0, 1], colors=['r', 'g'])
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsPatientIDPCA', columnValue='Patient_ID',
+#             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
+
+
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsDietsPCA_limited', columnValue='Diet',
+#             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'], limit=True)
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsFructanPCA_limited', columnValue='FRUCTANSENSITIVE',
+#             targets=[0, 1], colors=['r', 'g'], limit=True)
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsPatientIDPCA_limited', columnValue='Patient_ID',
+#             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8), limit=True)
+
+# humann3X = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/humann3PCA031323.txt'
+# completePCA(humann3X, humann3YW, outputRoot='./output/humann3DietsPCA', columnValue='Diet',
+#             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
+# completePCA(humann3X, humann3YW, outputRoot='./output/humann3FructanPCA', columnValue='FRUCTANSENSITIVE',
+#             targets=[0, 1], colors=['r', 'g'])
+# completePCA(humann3X, humann3YW, outputRoot='./output/humann3PatientIDPCA', columnValue='Patient_ID',
+#             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
+
+lipidsX = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/lipidsPCA031323.txt'
+completePCA(lipidsX, humann3YW, outputRoot='./output/lipidsDietsPCA', columnValue='Diet',
             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsFructanPCA', columnValue='FRUCTANSENSITIVE',
+completePCA(lipidsX, humann3YW, outputRoot='./output/lipidsFructanPCA', columnValue='FRUCTANSENSITIVE',
             targets=[0, 1], colors=['r', 'g'])
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsPatientIDPCA', columnValue='Patient_ID',
+completePCA(lipidsX, humann3YW, outputRoot='./output/lipidsPatientIDPCA', columnValue='Patient_ID',
             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
 
-
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsDietsPCA_limited', columnValue='Diet',
-            targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'], limit=True)
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsFructanPCA_limited', columnValue='FRUCTANSENSITIVE',
-            targets=[0, 1], colors=['r', 'g'], limit=True)
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsPatientIDPCA_limited', columnValue='Patient_ID',
-            targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8), limit=True)

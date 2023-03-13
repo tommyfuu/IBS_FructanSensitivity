@@ -1,0 +1,288 @@
+---
+title: "alpha/beta diversity for bruno ATTEMPT 2"
+author: "Tom Fu"
+date: "8/11/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(warn=-1)
+```
+
+
+```{r}
+library(betapart)
+library(vegan)
+library(ggplot2)
+library(readxl)
+library(ggnetwork)
+```
+
+# 1. all
+## 1.1 data loading and cleaning
+```{r}
+otu_mat<- read_excel("/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diversityAnalysis/source/speciesBrunoOTUTable110422.xlsx") # CORRECT
+row.names(otu_mat) <- otu_mat$otu
+otu_mat <- as.matrix(otu_mat)
+otu_mat_t = t(otu_mat)
+otu_mat_t <- otu_mat_t[-1,]
+class(otu_mat_t)<-"numeric"
+View(otu_mat_t)
+```
+
+```{r}
+samples_df <- read_excel("/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diversityAnalysis/source/brunoMetadata110422_1.xlsx") # CORRECT
+groups<-as.list(samples_df['FsenText'])$FsenText
+groups
+```
+
+## 1.2 alpha diversity
+```{r}
+alphaDiversity <- diversity(otu_mat_t, index="shannon")
+summary(aov(alphaDiversity ~ groups))
+```
+
+```{r}
+alphaDataframe <- data.frame(alphaDiversity, groups)
+write.csv(alphaDataframe, "alph_div_df_all.csv")
+p<-ggplot(alphaDataframe, aes(x=groups, y=alphaDiversity)) + 
+  geom_dotplot(binaxis='y', stackdir='center')+
+  ggtitle("Shannon Alpha Diversity - all")
+p
+ggsave(file="alpha_div_all.pdf", width=10, height=8, dpi=300)
+```
+
+## 1.3 beta diversity
+```{r}
+dist <- vegdist(otu_mat_t, method = "bray")
+beta_diversity_all<-betadisper(dist,groups)
+g <- plot(beta_diversity_all)
+# ggsave(file="beta_div_all.pdf", width=10, height=8, dpi=300)
+anova(beta_diversity_all)
+g
+```
+
+```{r}
+prepDataFrame <- as.data.frame(g$sites)
+prepDataFrame$Fsen <- groups
+prepDataFrame$PCoA1_centroids <- ifelse(prepDataFrame$Fsen == "sensitive", 0.03115702, -0.02736797)
+prepDataFrame$PCoA2_centroids <- ifelse(prepDataFrame$Fsen == "sensitive", -0.01306529, 0.01355755)
+prepDataFrame
+write.csv(prepDataFrame, "beta_div_df_all.csv")
+library(readr)
+# a dataset edited from NMDSNetworkData.csv
+library(ggplot2)
+ggplot(prepDataFrame, aes(x = PCoA1, y = PCoA2, xend = PCoA1_centroids, yend = PCoA2_centroids, color = Fsen), axes=TRUE) +
+  geom_point(aes(color = Fsen)) +
+  geom_edges(aes(color = Fsen)) +
+  geom_nodes(aes(color = Fsen)) +
+  xlab("NMDS1") +
+  ylab("NMDS2")+
+  stat_ellipse(type = "norm", linetype = 2) +
+  theme_classic()
+ggsave(file="beta_div_all.pdf", width=10, height=8, dpi=300)
+```
+
+# 2. BS
+## 2.1 data loading and cleaning
+```{r}
+otu_mat<- read_excel("/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diversityAnalysis/source/dietSubsets/speciesOTUTable_BS_110422.xlsx") # CORRECT
+row.names(otu_mat) <- otu_mat$otu
+otu_mat <- as.matrix(otu_mat)
+otu_mat_t = t(otu_mat)
+otu_mat_t <- otu_mat_t[-1,]
+class(otu_mat_t)<-"numeric"
+```
+
+```{r}
+samples_df <- read_excel("/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diversityAnalysis/source/dietSubsets/brunoMetadata_BS_110422.xlsx") # CORRECT
+groups<-as.list(samples_df['FsenText'])$FsenText
+groups
+```
+
+
+## 2.2 alpha diversity
+```{r}
+alphaDiversity <- diversity(otu_mat_t, index="shannon")
+summary(aov(alphaDiversity ~ groups))
+```
+
+```{r}
+alphaDataframe <- data.frame(alphaDiversity, groups)
+write.csv(alphaDataframe, "alph_div_df_BS.csv")
+p<-ggplot(alphaDataframe, aes(x=groups, y=alphaDiversity)) + 
+  geom_dotplot(binaxis='y', stackdir='center')+
+  ggtitle("Shannon Alpha Diversity - BS")
+p
+ggsave(file="alpha_div_BS.pdf", width=10, height=8, dpi=300)
+```
+
+## 2.3 beta diversity
+```{r}
+dist <- vegdist(otu_mat_t, method = "bray")
+beta_diversity_BS<-betadisper(dist,groups)
+g <- plot(beta_diversity_BS)
+# ggsave(file="beta_div_BS.pdf", width=10, height=8, dpi=300)
+anova(beta_diversity_BS)
+g
+```
+
+```{r}
+coefficients(anova(beta_diversity_BS))
+```
+
+```{r}
+prepDataFrame <- as.data.frame(g$sites)
+prepDataFrame$Fsen <- groups
+prepDataFrame$PCoA1_centroids <- ifelse(prepDataFrame$Fsen == "sensitive", -0.02985877, 0.02887691)
+prepDataFrame$PCoA2_centroids <- ifelse(prepDataFrame$Fsen == "sensitive", -0.03657319, 0.01340628)
+prepDataFrame
+write.csv(prepDataFrame, "beta_div_df_BS.csv")
+library(readr)
+# a dataset edited from NMDSNetworkData.csv
+library(ggplot2)
+ggplot(prepDataFrame, aes(x = PCoA1, y = PCoA2, xend = PCoA1_centroids, yend = PCoA2_centroids, color = Fsen), axes=TRUE) +
+  geom_point(aes(color = Fsen)) +
+  geom_edges(aes(color = Fsen)) +
+  geom_nodes(aes(color = Fsen)) +
+  xlab("NMDS1") +
+  ylab("NMDS2")+
+  stat_ellipse(type = "norm", linetype = 2) +
+  theme_classic()
+ggsave(file="beta_div_BS.pdf", width=10, height=8, dpi=300)
+```
+# 3. A
+## 3.1 data loading and cleaning
+```{r}
+otu_mat<- read_excel("/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diversityAnalysis/source/dietSubsets/speciesOTUTable_A_110422.xlsx") # CORRECT
+row.names(otu_mat) <- otu_mat$otu
+otu_mat <- as.matrix(otu_mat)
+otu_mat_t = t(otu_mat)
+otu_mat_t <- otu_mat_t[-1,]
+class(otu_mat_t)<-"numeric"
+```
+
+```{r}
+samples_df <- read_excel("/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diversityAnalysis/source/dietSubsets/brunoMetadata_A_110422.xlsx") # CORRECT
+groups<-as.list(samples_df['FsenText'])$FsenText
+groups
+```
+
+
+## 3.2 alpha diversity
+```{r}
+alphaDiversity <- diversity(otu_mat_t, index="shannon")
+summary(aov(alphaDiversity ~ groups))
+```
+
+
+```{r}
+alphaDataframe <- data.frame(alphaDiversity, groups)
+write.csv(alphaDataframe, "alph_div_df_A.csv")
+p<-ggplot(alphaDataframe, aes(x=groups, y=alphaDiversity)) + 
+  geom_dotplot(binaxis='y', stackdir='center')+
+  ggtitle("Shannon Alpha Diversity - Fructan challenge")
+p
+ggsave(file="alpha_div_A.pdf", width=10, height=8, dpi=300)
+```
+
+## 3.3 beta diversity
+```{r}
+dist <- vegdist(otu_mat_t, method = "bray")
+beta_diversity_fructan_challenge<-betadisper(dist,groups)
+g <- plot(beta_diversity_fructan_challenge)
+dev.off
+# ggsave(file="beta_div_A.pdf", width=10, height=8, dpi=300)
+anova(beta_diversity_fructan_challenge)
+g
+```
+
+
+```{r}
+prepDataFrame <- as.data.frame(g$sites)
+prepDataFrame$Fsen <- groups
+prepDataFrame$PCoA1_centroids <- ifelse(prepDataFrame$Fsen == "sensitive", -0.06823887, 0.03122648)
+prepDataFrame$PCoA2_centroids <- ifelse(prepDataFrame$Fsen == "sensitive", -0.07139907, 0.03500215)
+prepDataFrame
+write.csv(prepDataFrame, "beta_div_df_A.csv")
+library(readr)
+# a dataset edited from NMDSNetworkData.csv
+library(ggplot2)
+ggplot(prepDataFrame, aes(x = PCoA1, y = PCoA2, xend = PCoA1_centroids, yend = PCoA2_centroids, color = Fsen), axes=TRUE) +
+  geom_point(aes(color = Fsen)) +
+  geom_edges(aes(color = Fsen)) +
+  geom_nodes(aes(color = Fsen)) +
+  xlab("NMDS1") +
+  ylab("NMDS2")+
+  stat_ellipse(type = "norm", linetype = 2) +
+  theme_classic()
+ggsave(file="beta_div_A.pdf", width=10, height=8, dpi=300)
+```
+
+# 4. B
+## 4.1 data loading and cleaning
+```{r}
+otu_mat<- read_excel("/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diversityAnalysis/source/dietSubsets/speciesOTUTable_B_110422.xlsx") # CORRECT
+row.names(otu_mat) <- otu_mat$otu
+otu_mat <- as.matrix(otu_mat)
+otu_mat_t = t(otu_mat)
+otu_mat_t <- otu_mat_t[-1,]
+class(otu_mat_t)<-"numeric"
+```
+
+```{r}
+samples_df <- read_excel("/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diversityAnalysis/source/dietSubsets/brunoMetadata_B_110422.xlsx") # CORRECT
+groups<-as.list(samples_df['FsenText'])$FsenText
+groups
+```
+
+## 4.2 alpha diversity
+```{r}
+alphaDiversity <- diversity(otu_mat_t, index="shannon")
+summary(aov(alphaDiversity ~ groups))
+```
+
+```{r}
+alphaDataframe <- data.frame(alphaDiversity, groups)
+write.csv(alphaDataframe, "alph_div_df_B.csv")
+p<-ggplot(alphaDataframe, aes(x=groups, y=alphaDiversity)) + 
+  geom_dotplot(binaxis='y', stackdir='center')+
+  ggtitle("Shannon Alpha Diversity - Maltodextrin challenge")
+p
+ggsave(file="alpha_div_B.pdf", width=10, height=8, dpi=300)
+```
+
+## 4.2 beta diversity
+```{r}
+dist <- vegdist(otu_mat_t, method = "bray")
+beta_diversity_maltedextrin_challenge<-betadisper(dist,groups)
+g <- plot(beta_diversity_maltedextrin_challenge)
+dev.off
+# ggsave(file="beta_div_B.pdf", width=10, height=8, dpi=300)
+anova(beta_diversity_maltedextrin_challenge)
+g
+```
+
+```{r}
+prepDataFrame <- as.data.frame(g$sites)
+prepDataFrame$Fsen <- groups
+prepDataFrame$PCoA1_centroids <- ifelse(prepDataFrame$Fsen == "sensitive", 0.04535485, -0.04962727)
+prepDataFrame$PCoA2_centroids <- ifelse(prepDataFrame$Fsen == "sensitive", 0.02646003, -0.03320186)
+prepDataFrame
+write.csv(prepDataFrame, "beta_div_df_B.csv")
+library(readr)
+# a dataset edited from NMDSNetworkData.csv
+library(ggplot2)
+ggplot(prepDataFrame, aes(x = PCoA1, y = PCoA2, xend = PCoA1_centroids, yend = PCoA2_centroids, color = Fsen), axes=TRUE) +
+  geom_point(aes(color = Fsen)) +
+  geom_edges(aes(color = Fsen)) +
+  geom_nodes(aes(color = Fsen)) +
+  xlab("NMDS1") +
+  ylab("NMDS2")+
+  stat_ellipse(type = "norm", linetype = 2) +
+  theme_classic()
+ggsave(file="beta_div_B.pdf", width=10, height=8, dpi=300)
+```

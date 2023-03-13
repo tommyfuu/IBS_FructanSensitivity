@@ -1,0 +1,1246 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\title{alpha/beta diversity for bruno ATTEMPT 2}
+\author{Tom Fu}
+\date{8/11/2021}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={alpha/beta diversity for bruno ATTEMPT 2},
+  pdfauthor={Tom Fu},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(betapart)}
+\FunctionTok{library}\NormalTok{(vegan)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: permute
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## This is vegan 2.6-2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(ggnetwork)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{all}{%
+\section{1. all}\label{all}}
+
+\hypertarget{data-loading-and-cleaning}{%
+\subsection{1.1 data loading and
+cleaning}\label{data-loading-and-cleaning}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{otu\_mat}\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"/Users/chenlianfu/Documents/GitHub/IBS\_FructanSensitivity/diversityAnalysis/source/speciesBrunoOTUTable110422.xlsx"}\NormalTok{) }\CommentTok{\# CORRECT}
+\FunctionTok{row.names}\NormalTok{(otu\_mat) }\OtherTok{\textless{}{-}}\NormalTok{ otu\_mat}\SpecialCharTok{$}\NormalTok{otu}
+\NormalTok{otu\_mat }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(otu\_mat)}
+\NormalTok{otu\_mat\_t }\OtherTok{=} \FunctionTok{t}\NormalTok{(otu\_mat)}
+\NormalTok{otu\_mat\_t }\OtherTok{\textless{}{-}}\NormalTok{ otu\_mat\_t[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,]}
+\FunctionTok{class}\NormalTok{(otu\_mat\_t)}\OtherTok{\textless{}{-}}\StringTok{"numeric"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{samples\_df }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"/Users/chenlianfu/Documents/GitHub/IBS\_FructanSensitivity/diversityAnalysis/source/brunoMetadata110422\_1.xlsx"}\NormalTok{) }\CommentTok{\# CORRECT}
+\NormalTok{groups}\OtherTok{\textless{}{-}}\FunctionTok{as.list}\NormalTok{(samples\_df[}\StringTok{\textquotesingle{}FsenText\textquotesingle{}}\NormalTok{])}\SpecialCharTok{$}\NormalTok{FsenText}
+\NormalTok{groups}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "tolerant"  "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant" 
+##  [7] "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant"  "sensitive"
+## [13] "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant"  "tolerant" 
+## [19] "sensitive" "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant" 
+## [25] "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant"  "sensitive"
+## [31] "sensitive" "tolerant"  "tolerant"  "tolerant"  "tolerant"  "sensitive"
+## [37] "sensitive" "tolerant"  "tolerant"  "sensitive" "sensitive" "sensitive"
+## [43] "sensitive" "tolerant"  "tolerant"  "sensitive" "sensitive" "tolerant" 
+## [49] "tolerant"  "sensitive" "sensitive" "sensitive" "sensitive" "tolerant" 
+## [55] "tolerant"  "sensitive" "sensitive" "sensitive" "sensitive" "tolerant" 
+## [61] "tolerant"  "sensitive" "sensitive" "sensitive" "sensitive" "tolerant" 
+## [67] "tolerant"  "tolerant"  "tolerant"  "sensitive" "sensitive" "tolerant" 
+## [73] "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant" 
+## [79] "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant" 
+## [85] "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant" 
+## [91] "tolerant"  "sensitive" "sensitive" "sensitive" "tolerant"  "tolerant" 
+## [97] "tolerant"  "tolerant"
+\end{verbatim}
+
+\hypertarget{alpha-diversity}{%
+\subsection{1.2 alpha diversity}\label{alpha-diversity}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alphaDiversity }\OtherTok{\textless{}{-}} \FunctionTok{diversity}\NormalTok{(otu\_mat\_t, }\AttributeTok{index=}\StringTok{"shannon"}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{aov}\NormalTok{(alphaDiversity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ groups))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Df Sum Sq Mean Sq F value Pr(>F)  
+## groups       1  0.395  0.3953   3.016 0.0857 .
+## Residuals   96 12.583  0.1311                 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alphaDataframe }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(alphaDiversity, groups)}
+\FunctionTok{write.csv}\NormalTok{(alphaDataframe, }\StringTok{"alph\_div\_df\_all.csv"}\NormalTok{)}
+\NormalTok{p}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(alphaDataframe, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{groups, }\AttributeTok{y=}\NormalTok{alphaDiversity)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_dotplot}\NormalTok{(}\AttributeTok{binaxis=}\StringTok{\textquotesingle{}y\textquotesingle{}}\NormalTok{, }\AttributeTok{stackdir=}\StringTok{\textquotesingle{}center\textquotesingle{}}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Shannon Alpha Diversity {-} all"}\NormalTok{)}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\AttributeTok{file=}\StringTok{"alpha\_div\_all.pdf"}\NormalTok{, }\AttributeTok{width=}\DecValTok{10}\NormalTok{, }\AttributeTok{height=}\DecValTok{8}\NormalTok{, }\AttributeTok{dpi=}\DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.
+\end{verbatim}
+
+\hypertarget{beta-diversity}{%
+\subsection{1.3 beta diversity}\label{beta-diversity}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dist }\OtherTok{\textless{}{-}} \FunctionTok{vegdist}\NormalTok{(otu\_mat\_t, }\AttributeTok{method =} \StringTok{"bray"}\NormalTok{)}
+\NormalTok{beta\_diversity\_all}\OtherTok{\textless{}{-}}\FunctionTok{betadisper}\NormalTok{(dist,groups)}
+\NormalTok{g }\OtherTok{\textless{}{-}} \FunctionTok{plot}\NormalTok{(beta\_diversity\_all)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggsave(file="beta\_div\_all.pdf", width=10, height=8, dpi=300)}
+\FunctionTok{anova}\NormalTok{(beta\_diversity\_all)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: Distances
+##           Df  Sum Sq  Mean Sq F value Pr(>F)
+## Groups     1 0.01076 0.010756   2.089 0.1516
+## Residuals 96 0.49430 0.005149
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $sites
+##              PCoA1         PCoA2
+## 3003   0.164506517  0.0071442581
+## 3004  -0.144515198 -0.0739727540
+## 3005  -0.058005366 -0.2028920270
+## 3007   0.198304768  0.0907124896
+## 3008  -0.082797210 -0.2468649398
+## 3009  -0.214429214 -0.0533822450
+## 3012   0.330595212 -0.0825080261
+## 3013   0.221795644 -0.0908629439
+## 3014  -0.247625333 -0.2245389448
+## 3016   0.264163034  0.0676033991
+## 3020  -0.123732540 -0.2448121213
+## 3021   0.317427117 -0.1206929229
+## 3022  -0.198350990  0.2622066106
+## 3023   0.130277754  0.1552851379
+## 3025  -0.298074637  0.1470219884
+## 3026  -0.314177266 -0.0719639093
+## 3027  -0.171464730  0.0682151749
+## 3028  -0.206016439  0.1945941794
+## 3029   0.058601194  0.0120292127
+## 3030   0.007078642  0.2215036261
+## 3031   0.061781694  0.1463723504
+## 3032   0.055631616 -0.1152121575
+## 3033  -0.074903791 -0.2940232835
+## 3036  -0.261303982 -0.0944831951
+## 3037   0.176621805  0.0009342984
+## 3039   0.114814733 -0.2333364584
+## 3042   0.132578507  0.1853553769
+## 3043   0.031479630  0.1486600770
+## 3044  -0.166384295  0.1055721168
+## 3046   0.457096490 -0.0859985776
+## 3047   0.245694654 -0.1523022295
+## 3048  -0.287470750  0.0107992654
+## 3049  -0.008381539  0.1440716960
+## 3003A  0.166655804  0.1064692513
+## 3003B -0.065170271  0.1403686144
+## 3004A -0.078511151  0.0799202229
+## 3004B -0.154936352  0.1613891946
+## 3005A -0.164720193 -0.1982785785
+## 3005B  0.038784343  0.0753537637
+## 3007A  0.435884191  0.0110960685
+## 3007B  0.482103142 -0.0530206392
+## 3008A  0.066158375  0.1218686225
+## 3008B -0.234014003  0.1420354710
+## 3009A -0.253649273 -0.1709028398
+## 3009B -0.249017839 -0.4778230562
+## 3012A  0.357880063 -0.0175426105
+## 3012B  0.461532158 -0.0960799882
+## 3013A -0.087738343 -0.1338242795
+## 3013B -0.124078009 -0.2315286460
+## 3014A -0.271511635 -0.0344814904
+## 3014B -0.293628101 -0.1262911045
+## 3016A  0.260446995  0.0444599828
+## 3016B  0.375801799 -0.0246130579
+## 3020A  0.287272666  0.0102207182
+## 3020B  0.135524557 -0.0005918203
+## 3021A  0.103171596  0.0693215110
+## 3021B  0.103987615  0.0662089212
+## 3022A -0.108765958  0.2241060128
+## 3022B -0.028645639  0.1473676498
+## 3023A  0.223141261  0.1574104232
+## 3023B  0.412768082 -0.0999095263
+## 3025A -0.118722345  0.1079421002
+## 3025B -0.226484440 -0.1056204375
+## 3026A -0.162911363 -0.1734252210
+## 3026B  0.118898702 -0.1185863967
+## 3027A -0.029940603  0.0747625257
+## 3027B -0.227928456  0.0545104488
+## 3028A -0.069581000  0.1695765038
+## 3028B -0.272179020 -0.0598186655
+## 3029A -0.137656009  0.0354103921
+## 3029B -0.186207613 -0.3525011240
+## 3030A -0.048184904  0.2169143388
+## 3030B  0.233325022  0.0518841937
+## 3031A  0.049943805  0.0917480625
+## 3031B  0.042198804  0.1746623329
+## 3032A -0.193854104  0.0809715237
+## 3032B  0.055953006  0.0121253356
+## 3033A  0.114925349 -0.0911050122
+## 3033B  0.064484708 -0.2910569368
+## 3036A -0.172263686 -0.0531622371
+## 3036B -0.328856490 -0.1622649597
+## 3037A  0.292600022 -0.0447472721
+## 3037B  0.120593416 -0.0330658565
+## 3039A -0.075067849 -0.1890866817
+## 3039B -0.107641176 -0.0151425107
+## 3042A -0.057867456  0.2527436993
+## 3042B -0.066496555  0.2822484082
+## 3043A  0.068085920  0.1477716749
+## 3043B  0.013827992  0.1405386802
+## 3044A -0.068801679  0.0531505815
+## 3044B -0.168265518 -0.0005094445
+## 3046A -0.213742841  0.2473035052
+## 3046B  0.443121120 -0.1260523962
+## 3047B  0.004506664 -0.2887330531
+## 3048A -0.191079547 -0.1473707866
+## 3048B -0.207825742  0.2537100326
+## 3049A -0.166109984  0.2146473170
+## 3049B -0.032337763  0.1166840223
+## 
+## $centroids
+##                 PCoA1       PCoA2
+## sensitive  0.03115702 -0.01306529
+## tolerant  -0.02736797  0.01355755
+## 
+## attr(,"class")
+## [1] "ordiplot"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prepDataFrame }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(g}\SpecialCharTok{$}\NormalTok{sites)}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\OtherTok{\textless{}{-}}\NormalTok{ groups}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{PCoA1\_centroids }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\SpecialCharTok{==} \StringTok{"sensitive"}\NormalTok{, }\FloatTok{0.03115702}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.02736797}\NormalTok{)}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{PCoA2\_centroids }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\SpecialCharTok{==} \StringTok{"sensitive"}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.01306529}\NormalTok{, }\FloatTok{0.01355755}\NormalTok{)}
+\NormalTok{prepDataFrame}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              PCoA1         PCoA2      Fsen PCoA1_centroids PCoA2_centroids
+## 3003   0.164506517  0.0071442581  tolerant     -0.02736797      0.01355755
+## 3004  -0.144515198 -0.0739727540 sensitive      0.03115702     -0.01306529
+## 3005  -0.058005366 -0.2028920270  tolerant     -0.02736797      0.01355755
+## 3007   0.198304768  0.0907124896 sensitive      0.03115702     -0.01306529
+## 3008  -0.082797210 -0.2468649398 sensitive      0.03115702     -0.01306529
+## 3009  -0.214429214 -0.0533822450  tolerant     -0.02736797      0.01355755
+## 3012   0.330595212 -0.0825080261 sensitive      0.03115702     -0.01306529
+## 3013   0.221795644 -0.0908629439  tolerant     -0.02736797      0.01355755
+## 3014  -0.247625333 -0.2245389448 sensitive      0.03115702     -0.01306529
+## 3016   0.264163034  0.0676033991 sensitive      0.03115702     -0.01306529
+## 3020  -0.123732540 -0.2448121213  tolerant     -0.02736797      0.01355755
+## 3021   0.317427117 -0.1206929229 sensitive      0.03115702     -0.01306529
+## 3022  -0.198350990  0.2622066106 sensitive      0.03115702     -0.01306529
+## 3023   0.130277754  0.1552851379  tolerant     -0.02736797      0.01355755
+## 3025  -0.298074637  0.1470219884 sensitive      0.03115702     -0.01306529
+## 3026  -0.314177266 -0.0719639093 sensitive      0.03115702     -0.01306529
+## 3027  -0.171464730  0.0682151749  tolerant     -0.02736797      0.01355755
+## 3028  -0.206016439  0.1945941794  tolerant     -0.02736797      0.01355755
+## 3029   0.058601194  0.0120292127 sensitive      0.03115702     -0.01306529
+## 3030   0.007078642  0.2215036261  tolerant     -0.02736797      0.01355755
+## 3031   0.061781694  0.1463723504  tolerant     -0.02736797      0.01355755
+## 3032   0.055631616 -0.1152121575  tolerant     -0.02736797      0.01355755
+## 3033  -0.074903791 -0.2940232835  tolerant     -0.02736797      0.01355755
+## 3036  -0.261303982 -0.0944831951  tolerant     -0.02736797      0.01355755
+## 3037   0.176621805  0.0009342984  tolerant     -0.02736797      0.01355755
+## 3039   0.114814733 -0.2333364584  tolerant     -0.02736797      0.01355755
+## 3042   0.132578507  0.1853553769  tolerant     -0.02736797      0.01355755
+## 3043   0.031479630  0.1486600770  tolerant     -0.02736797      0.01355755
+## 3044  -0.166384295  0.1055721168  tolerant     -0.02736797      0.01355755
+## 3046   0.457096490 -0.0859985776 sensitive      0.03115702     -0.01306529
+## 3047   0.245694654 -0.1523022295 sensitive      0.03115702     -0.01306529
+## 3048  -0.287470750  0.0107992654  tolerant     -0.02736797      0.01355755
+## 3049  -0.008381539  0.1440716960  tolerant     -0.02736797      0.01355755
+## 3003A  0.166655804  0.1064692513  tolerant     -0.02736797      0.01355755
+## 3003B -0.065170271  0.1403686144  tolerant     -0.02736797      0.01355755
+## 3004A -0.078511151  0.0799202229 sensitive      0.03115702     -0.01306529
+## 3004B -0.154936352  0.1613891946 sensitive      0.03115702     -0.01306529
+## 3005A -0.164720193 -0.1982785785  tolerant     -0.02736797      0.01355755
+## 3005B  0.038784343  0.0753537637  tolerant     -0.02736797      0.01355755
+## 3007A  0.435884191  0.0110960685 sensitive      0.03115702     -0.01306529
+## 3007B  0.482103142 -0.0530206392 sensitive      0.03115702     -0.01306529
+## 3008A  0.066158375  0.1218686225 sensitive      0.03115702     -0.01306529
+## 3008B -0.234014003  0.1420354710 sensitive      0.03115702     -0.01306529
+## 3009A -0.253649273 -0.1709028398  tolerant     -0.02736797      0.01355755
+## 3009B -0.249017839 -0.4778230562  tolerant     -0.02736797      0.01355755
+## 3012A  0.357880063 -0.0175426105 sensitive      0.03115702     -0.01306529
+## 3012B  0.461532158 -0.0960799882 sensitive      0.03115702     -0.01306529
+## 3013A -0.087738343 -0.1338242795  tolerant     -0.02736797      0.01355755
+## 3013B -0.124078009 -0.2315286460  tolerant     -0.02736797      0.01355755
+## 3014A -0.271511635 -0.0344814904 sensitive      0.03115702     -0.01306529
+## 3014B -0.293628101 -0.1262911045 sensitive      0.03115702     -0.01306529
+## 3016A  0.260446995  0.0444599828 sensitive      0.03115702     -0.01306529
+## 3016B  0.375801799 -0.0246130579 sensitive      0.03115702     -0.01306529
+## 3020A  0.287272666  0.0102207182  tolerant     -0.02736797      0.01355755
+## 3020B  0.135524557 -0.0005918203  tolerant     -0.02736797      0.01355755
+## 3021A  0.103171596  0.0693215110 sensitive      0.03115702     -0.01306529
+## 3021B  0.103987615  0.0662089212 sensitive      0.03115702     -0.01306529
+## 3022A -0.108765958  0.2241060128 sensitive      0.03115702     -0.01306529
+## 3022B -0.028645639  0.1473676498 sensitive      0.03115702     -0.01306529
+## 3023A  0.223141261  0.1574104232  tolerant     -0.02736797      0.01355755
+## 3023B  0.412768082 -0.0999095263  tolerant     -0.02736797      0.01355755
+## 3025A -0.118722345  0.1079421002 sensitive      0.03115702     -0.01306529
+## 3025B -0.226484440 -0.1056204375 sensitive      0.03115702     -0.01306529
+## 3026A -0.162911363 -0.1734252210 sensitive      0.03115702     -0.01306529
+## 3026B  0.118898702 -0.1185863967 sensitive      0.03115702     -0.01306529
+## 3027A -0.029940603  0.0747625257  tolerant     -0.02736797      0.01355755
+## 3027B -0.227928456  0.0545104488  tolerant     -0.02736797      0.01355755
+## 3028A -0.069581000  0.1695765038  tolerant     -0.02736797      0.01355755
+## 3028B -0.272179020 -0.0598186655  tolerant     -0.02736797      0.01355755
+## 3029A -0.137656009  0.0354103921 sensitive      0.03115702     -0.01306529
+## 3029B -0.186207613 -0.3525011240 sensitive      0.03115702     -0.01306529
+## 3030A -0.048184904  0.2169143388  tolerant     -0.02736797      0.01355755
+## 3030B  0.233325022  0.0518841937  tolerant     -0.02736797      0.01355755
+## 3031A  0.049943805  0.0917480625  tolerant     -0.02736797      0.01355755
+## 3031B  0.042198804  0.1746623329  tolerant     -0.02736797      0.01355755
+## 3032A -0.193854104  0.0809715237  tolerant     -0.02736797      0.01355755
+## 3032B  0.055953006  0.0121253356  tolerant     -0.02736797      0.01355755
+## 3033A  0.114925349 -0.0911050122  tolerant     -0.02736797      0.01355755
+## 3033B  0.064484708 -0.2910569368  tolerant     -0.02736797      0.01355755
+## 3036A -0.172263686 -0.0531622371  tolerant     -0.02736797      0.01355755
+## 3036B -0.328856490 -0.1622649597  tolerant     -0.02736797      0.01355755
+## 3037A  0.292600022 -0.0447472721  tolerant     -0.02736797      0.01355755
+## 3037B  0.120593416 -0.0330658565  tolerant     -0.02736797      0.01355755
+## 3039A -0.075067849 -0.1890866817  tolerant     -0.02736797      0.01355755
+## 3039B -0.107641176 -0.0151425107  tolerant     -0.02736797      0.01355755
+## 3042A -0.057867456  0.2527436993  tolerant     -0.02736797      0.01355755
+## 3042B -0.066496555  0.2822484082  tolerant     -0.02736797      0.01355755
+## 3043A  0.068085920  0.1477716749  tolerant     -0.02736797      0.01355755
+## 3043B  0.013827992  0.1405386802  tolerant     -0.02736797      0.01355755
+## 3044A -0.068801679  0.0531505815  tolerant     -0.02736797      0.01355755
+## 3044B -0.168265518 -0.0005094445  tolerant     -0.02736797      0.01355755
+## 3046A -0.213742841  0.2473035052 sensitive      0.03115702     -0.01306529
+## 3046B  0.443121120 -0.1260523962 sensitive      0.03115702     -0.01306529
+## 3047B  0.004506664 -0.2887330531 sensitive      0.03115702     -0.01306529
+## 3048A -0.191079547 -0.1473707866  tolerant     -0.02736797      0.01355755
+## 3048B -0.207825742  0.2537100326  tolerant     -0.02736797      0.01355755
+## 3049A -0.166109984  0.2146473170  tolerant     -0.02736797      0.01355755
+## 3049B -0.032337763  0.1166840223  tolerant     -0.02736797      0.01355755
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(prepDataFrame, }\StringTok{"beta\_div\_df\_all.csv"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(readr)}
+\CommentTok{\# a dataset edited from NMDSNetworkData.csv}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(prepDataFrame, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ PCoA1, }\AttributeTok{y =}\NormalTok{ PCoA2, }\AttributeTok{xend =}\NormalTok{ PCoA1\_centroids, }\AttributeTok{yend =}\NormalTok{ PCoA2\_centroids, }\AttributeTok{color =}\NormalTok{ Fsen), }\AttributeTok{axes=}\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_edges}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_nodes}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"NMDS1"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"NMDS2"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{stat\_ellipse}\NormalTok{(}\AttributeTok{type =} \StringTok{"norm"}\NormalTok{, }\AttributeTok{linetype =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\AttributeTok{file=}\StringTok{"beta\_div\_all.pdf"}\NormalTok{, }\AttributeTok{width=}\DecValTok{10}\NormalTok{, }\AttributeTok{height=}\DecValTok{8}\NormalTok{, }\AttributeTok{dpi=}\DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{bs}{%
+\section{2. BS}\label{bs}}
+
+\hypertarget{data-loading-and-cleaning-1}{%
+\subsection{2.1 data loading and
+cleaning}\label{data-loading-and-cleaning-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{otu\_mat}\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"/Users/chenlianfu/Documents/GitHub/IBS\_FructanSensitivity/diversityAnalysis/source/dietSubsets/speciesOTUTable\_BS\_110422.xlsx"}\NormalTok{) }\CommentTok{\# CORRECT}
+\FunctionTok{row.names}\NormalTok{(otu\_mat) }\OtherTok{\textless{}{-}}\NormalTok{ otu\_mat}\SpecialCharTok{$}\NormalTok{otu}
+\NormalTok{otu\_mat }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(otu\_mat)}
+\NormalTok{otu\_mat\_t }\OtherTok{=} \FunctionTok{t}\NormalTok{(otu\_mat)}
+\NormalTok{otu\_mat\_t }\OtherTok{\textless{}{-}}\NormalTok{ otu\_mat\_t[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,]}
+\FunctionTok{class}\NormalTok{(otu\_mat\_t)}\OtherTok{\textless{}{-}}\StringTok{"numeric"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{samples\_df }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"/Users/chenlianfu/Documents/GitHub/IBS\_FructanSensitivity/diversityAnalysis/source/dietSubsets/brunoMetadata\_BS\_110422.xlsx"}\NormalTok{) }\CommentTok{\# CORRECT}
+\NormalTok{groups}\OtherTok{\textless{}{-}}\FunctionTok{as.list}\NormalTok{(samples\_df[}\StringTok{\textquotesingle{}FsenText\textquotesingle{}}\NormalTok{])}\SpecialCharTok{$}\NormalTok{FsenText}
+\NormalTok{groups}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "tolerant"  "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant" 
+##  [7] "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant"  "sensitive"
+## [13] "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant"  "tolerant" 
+## [19] "sensitive" "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant" 
+## [25] "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant"  "sensitive"
+## [31] "sensitive" "tolerant"  "tolerant"
+\end{verbatim}
+
+\hypertarget{alpha-diversity-1}{%
+\subsection{2.2 alpha diversity}\label{alpha-diversity-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alphaDiversity }\OtherTok{\textless{}{-}} \FunctionTok{diversity}\NormalTok{(otu\_mat\_t, }\AttributeTok{index=}\StringTok{"shannon"}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{aov}\NormalTok{(alphaDiversity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ groups))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Df Sum Sq Mean Sq F value  Pr(>F)   
+## groups       1  0.807  0.8070   8.385 0.00688 **
+## Residuals   31  2.983  0.0962                   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alphaDataframe }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(alphaDiversity, groups)}
+\FunctionTok{write.csv}\NormalTok{(alphaDataframe, }\StringTok{"alph\_div\_df\_BS.csv"}\NormalTok{)}
+\NormalTok{p}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(alphaDataframe, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{groups, }\AttributeTok{y=}\NormalTok{alphaDiversity)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_dotplot}\NormalTok{(}\AttributeTok{binaxis=}\StringTok{\textquotesingle{}y\textquotesingle{}}\NormalTok{, }\AttributeTok{stackdir=}\StringTok{\textquotesingle{}center\textquotesingle{}}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Shannon Alpha Diversity {-} BS"}\NormalTok{)}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\AttributeTok{file=}\StringTok{"alpha\_div\_BS.pdf"}\NormalTok{, }\AttributeTok{width=}\DecValTok{10}\NormalTok{, }\AttributeTok{height=}\DecValTok{8}\NormalTok{, }\AttributeTok{dpi=}\DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.
+\end{verbatim}
+
+\hypertarget{beta-diversity-1}{%
+\subsection{2.3 beta diversity}\label{beta-diversity-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dist }\OtherTok{\textless{}{-}} \FunctionTok{vegdist}\NormalTok{(otu\_mat\_t, }\AttributeTok{method =} \StringTok{"bray"}\NormalTok{)}
+\NormalTok{beta\_diversity\_BS}\OtherTok{\textless{}{-}}\FunctionTok{betadisper}\NormalTok{(dist,groups)}
+\NormalTok{g }\OtherTok{\textless{}{-}} \FunctionTok{plot}\NormalTok{(beta\_diversity\_BS)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggsave(file="beta\_div\_BS.pdf", width=10, height=8, dpi=300)}
+\FunctionTok{anova}\NormalTok{(beta\_diversity\_BS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: Distances
+##           Df   Sum Sq   Mean Sq F value  Pr(>F)  
+## Groups     1 0.021436 0.0214357  4.6206 0.03951 *
+## Residuals 31 0.143815 0.0046392                  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $sites
+##            PCoA1       PCoA2
+## 3003 -0.20791478  0.11422094
+## 3004  0.13956311 -0.10546715
+## 3005  0.06664968 -0.21987513
+## 3007 -0.19967150  0.14679642
+## 3008  0.05668736 -0.31882804
+## 3009  0.20785624  0.01578278
+## 3012 -0.30560243  0.01768410
+## 3013 -0.25863253 -0.06381954
+## 3014  0.22833680 -0.24579008
+## 3016 -0.21262209  0.03914801
+## 3020  0.10041025 -0.23493157
+## 3021 -0.39622781 -0.06599891
+## 3022  0.21459022  0.23635072
+## 3023 -0.08791699  0.10100606
+## 3025  0.33572960  0.15962945
+## 3026  0.33175450 -0.05256500
+## 3027  0.21776886  0.20090082
+## 3028  0.20346407  0.16221774
+## 3029 -0.08685991 -0.07360836
+## 3030  0.05101955  0.16208886
+## 3031 -0.06293778  0.18456687
+## 3032 -0.05400512 -0.12831342
+## 3033  0.07422754 -0.28663245
+## 3036  0.28121917 -0.12170410
+## 3037 -0.18747194  0.06665638
+## 3039 -0.15180356 -0.26072639
+## 3042 -0.04970932  0.19439143
+## 3043 -0.01674040  0.17371747
+## 3044  0.17593483  0.13838541
+## 3046 -0.48243493  0.08082018
+## 3047 -0.25555445 -0.13663593
+## 3048  0.25926168 -0.02468912
+## 3049  0.07163208  0.14522155
+## 
+## $centroids
+##                 PCoA1       PCoA2
+## sensitive -0.02985877 -0.03657319
+## tolerant   0.02887691  0.01340628
+## 
+## attr(,"class")
+## [1] "ordiplot"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prepDataFrame }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(g}\SpecialCharTok{$}\NormalTok{sites)}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\OtherTok{\textless{}{-}}\NormalTok{ groups}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{PCoA1\_centroids }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\SpecialCharTok{==} \StringTok{"sensitive"}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.02985877}\NormalTok{, }\FloatTok{0.02887691}\NormalTok{)}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{PCoA2\_centroids }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\SpecialCharTok{==} \StringTok{"sensitive"}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.03657319}\NormalTok{, }\FloatTok{0.01340628}\NormalTok{)}
+\NormalTok{prepDataFrame}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            PCoA1       PCoA2      Fsen PCoA1_centroids PCoA2_centroids
+## 3003 -0.20791478  0.11422094  tolerant      0.02887691      0.01340628
+## 3004  0.13956311 -0.10546715 sensitive     -0.02985877     -0.03657319
+## 3005  0.06664968 -0.21987513  tolerant      0.02887691      0.01340628
+## 3007 -0.19967150  0.14679642 sensitive     -0.02985877     -0.03657319
+## 3008  0.05668736 -0.31882804 sensitive     -0.02985877     -0.03657319
+## 3009  0.20785624  0.01578278  tolerant      0.02887691      0.01340628
+## 3012 -0.30560243  0.01768410 sensitive     -0.02985877     -0.03657319
+## 3013 -0.25863253 -0.06381954  tolerant      0.02887691      0.01340628
+## 3014  0.22833680 -0.24579008 sensitive     -0.02985877     -0.03657319
+## 3016 -0.21262209  0.03914801 sensitive     -0.02985877     -0.03657319
+## 3020  0.10041025 -0.23493157  tolerant      0.02887691      0.01340628
+## 3021 -0.39622781 -0.06599891 sensitive     -0.02985877     -0.03657319
+## 3022  0.21459022  0.23635072 sensitive     -0.02985877     -0.03657319
+## 3023 -0.08791699  0.10100606  tolerant      0.02887691      0.01340628
+## 3025  0.33572960  0.15962945 sensitive     -0.02985877     -0.03657319
+## 3026  0.33175450 -0.05256500 sensitive     -0.02985877     -0.03657319
+## 3027  0.21776886  0.20090082  tolerant      0.02887691      0.01340628
+## 3028  0.20346407  0.16221774  tolerant      0.02887691      0.01340628
+## 3029 -0.08685991 -0.07360836 sensitive     -0.02985877     -0.03657319
+## 3030  0.05101955  0.16208886  tolerant      0.02887691      0.01340628
+## 3031 -0.06293778  0.18456687  tolerant      0.02887691      0.01340628
+## 3032 -0.05400512 -0.12831342  tolerant      0.02887691      0.01340628
+## 3033  0.07422754 -0.28663245  tolerant      0.02887691      0.01340628
+## 3036  0.28121917 -0.12170410  tolerant      0.02887691      0.01340628
+## 3037 -0.18747194  0.06665638  tolerant      0.02887691      0.01340628
+## 3039 -0.15180356 -0.26072639  tolerant      0.02887691      0.01340628
+## 3042 -0.04970932  0.19439143  tolerant      0.02887691      0.01340628
+## 3043 -0.01674040  0.17371747  tolerant      0.02887691      0.01340628
+## 3044  0.17593483  0.13838541  tolerant      0.02887691      0.01340628
+## 3046 -0.48243493  0.08082018 sensitive     -0.02985877     -0.03657319
+## 3047 -0.25555445 -0.13663593 sensitive     -0.02985877     -0.03657319
+## 3048  0.25926168 -0.02468912  tolerant      0.02887691      0.01340628
+## 3049  0.07163208  0.14522155  tolerant      0.02887691      0.01340628
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(prepDataFrame, }\StringTok{"beta\_div\_df\_BS.csv"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(readr)}
+\CommentTok{\# a dataset edited from NMDSNetworkData.csv}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(prepDataFrame, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ PCoA1, }\AttributeTok{y =}\NormalTok{ PCoA2, }\AttributeTok{xend =}\NormalTok{ PCoA1\_centroids, }\AttributeTok{yend =}\NormalTok{ PCoA2\_centroids, }\AttributeTok{color =}\NormalTok{ Fsen), }\AttributeTok{axes=}\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_edges}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_nodes}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"NMDS1"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"NMDS2"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{stat\_ellipse}\NormalTok{(}\AttributeTok{type =} \StringTok{"norm"}\NormalTok{, }\AttributeTok{linetype =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\AttributeTok{file=}\StringTok{"beta\_div\_BS.pdf"}\NormalTok{, }\AttributeTok{width=}\DecValTok{10}\NormalTok{, }\AttributeTok{height=}\DecValTok{8}\NormalTok{, }\AttributeTok{dpi=}\DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{a}{%
+\section{3. A}\label{a}}
+
+\hypertarget{data-loading-and-cleaning-2}{%
+\subsection{3.1 data loading and
+cleaning}\label{data-loading-and-cleaning-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{otu\_mat}\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"/Users/chenlianfu/Documents/GitHub/IBS\_FructanSensitivity/diversityAnalysis/source/dietSubsets/speciesOTUTable\_A\_110422.xlsx"}\NormalTok{) }\CommentTok{\# CORRECT}
+\FunctionTok{row.names}\NormalTok{(otu\_mat) }\OtherTok{\textless{}{-}}\NormalTok{ otu\_mat}\SpecialCharTok{$}\NormalTok{otu}
+\NormalTok{otu\_mat }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(otu\_mat)}
+\NormalTok{otu\_mat\_t }\OtherTok{=} \FunctionTok{t}\NormalTok{(otu\_mat)}
+\NormalTok{otu\_mat\_t }\OtherTok{\textless{}{-}}\NormalTok{ otu\_mat\_t[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,]}
+\FunctionTok{class}\NormalTok{(otu\_mat\_t)}\OtherTok{\textless{}{-}}\StringTok{"numeric"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{samples\_df }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"/Users/chenlianfu/Documents/GitHub/IBS\_FructanSensitivity/diversityAnalysis/source/dietSubsets/brunoMetadata\_A\_110422.xlsx"}\NormalTok{) }\CommentTok{\# CORRECT}
+\NormalTok{groups}\OtherTok{\textless{}{-}}\FunctionTok{as.list}\NormalTok{(samples\_df[}\StringTok{\textquotesingle{}FsenText\textquotesingle{}}\NormalTok{])}\SpecialCharTok{$}\NormalTok{FsenText}
+\NormalTok{groups}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "tolerant"  "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant" 
+##  [7] "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant"  "sensitive"
+## [13] "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant"  "tolerant" 
+## [19] "sensitive" "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant" 
+## [25] "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant"  "sensitive"
+## [31] "tolerant"  "tolerant"
+\end{verbatim}
+
+\hypertarget{alpha-diversity-2}{%
+\subsection{3.2 alpha diversity}\label{alpha-diversity-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alphaDiversity }\OtherTok{\textless{}{-}} \FunctionTok{diversity}\NormalTok{(otu\_mat\_t, }\AttributeTok{index=}\StringTok{"shannon"}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{aov}\NormalTok{(alphaDiversity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ groups))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Df Sum Sq Mean Sq F value Pr(>F)
+## groups       1  0.067 0.06657   0.412  0.526
+## Residuals   30  4.841 0.16138
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alphaDataframe }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(alphaDiversity, groups)}
+\FunctionTok{write.csv}\NormalTok{(alphaDataframe, }\StringTok{"alph\_div\_df\_A.csv"}\NormalTok{)}
+\NormalTok{p}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(alphaDataframe, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{groups, }\AttributeTok{y=}\NormalTok{alphaDiversity)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_dotplot}\NormalTok{(}\AttributeTok{binaxis=}\StringTok{\textquotesingle{}y\textquotesingle{}}\NormalTok{, }\AttributeTok{stackdir=}\StringTok{\textquotesingle{}center\textquotesingle{}}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Shannon Alpha Diversity {-} Fructan challenge"}\NormalTok{)}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\AttributeTok{file=}\StringTok{"alpha\_div\_A.pdf"}\NormalTok{, }\AttributeTok{width=}\DecValTok{10}\NormalTok{, }\AttributeTok{height=}\DecValTok{8}\NormalTok{, }\AttributeTok{dpi=}\DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.
+\end{verbatim}
+
+\hypertarget{beta-diversity-2}{%
+\subsection{3.3 beta diversity}\label{beta-diversity-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dist }\OtherTok{\textless{}{-}} \FunctionTok{vegdist}\NormalTok{(otu\_mat\_t, }\AttributeTok{method =} \StringTok{"bray"}\NormalTok{)}
+\NormalTok{beta\_diversity\_fructan\_challenge}\OtherTok{\textless{}{-}}\FunctionTok{betadisper}\NormalTok{(dist,groups)}
+\NormalTok{g }\OtherTok{\textless{}{-}} \FunctionTok{plot}\NormalTok{(beta\_diversity\_fructan\_challenge)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dev.off}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (which = dev.cur()) 
+## {
+##     if (which == 1) 
+##         stop("cannot shut down device 1 (the null device)")
+##     .External(C_devoff, as.integer(which))
+##     dev.cur()
+## }
+## <bytecode: 0x7fb559c5b4e0>
+## <environment: namespace:grDevices>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggsave(file="beta\_div\_A.pdf", width=10, height=8, dpi=300)}
+\FunctionTok{anova}\NormalTok{(beta\_diversity\_fructan\_challenge)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: Distances
+##           Df   Sum Sq   Mean Sq F value Pr(>F)
+## Groups     1 0.000273 0.0002735  0.0582  0.811
+## Residuals 30 0.141004 0.0047001
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $sites
+##               PCoA1       PCoA2
+## 3003A  0.0441677429  0.38283619
+## 3004A  0.0828625107 -0.09278056
+## 3005A  0.0379890702 -0.20157629
+## 3007A -0.3759037336  0.24310633
+## 3008A -0.1383976477 -0.07998188
+## 3009A  0.3738847502  0.08029102
+## 3012A -0.3354912089  0.18561258
+## 3013A  0.2790018697  0.22083642
+## 3014A  0.1259877419 -0.29315664
+## 3016A -0.3012640720  0.03467458
+## 3020A -0.1193846188  0.34179879
+## 3021A -0.1011613674 -0.01159111
+## 3022A  0.1736487599  0.07555590
+## 3023A -0.2844635558  0.11542452
+## 3025A -0.0530972414 -0.21449097
+## 3026A  0.0990924366 -0.11741128
+## 3027A  0.1019807428  0.08492518
+## 3028A -0.0744293570 -0.14057275
+## 3029A -0.0085005473 -0.20671649
+## 3030A -0.1207205523 -0.14203642
+## 3031A -0.0177008476  0.01135208
+## 3032A  0.0785315462 -0.22475149
+## 3033A -0.0851998964  0.08615089
+## 3036A  0.4395745192  0.20615216
+## 3037A -0.2723518847  0.11905957
+## 3039A  0.0254193862 -0.09057678
+## 3042A -0.0598141462 -0.11441495
+## 3043A -0.1859450415  0.01279322
+## 3044A  0.3864154615  0.30177975
+## 3046A -0.0007573109 -0.29986991
+## 3048A  0.2217916349 -0.10262622
+## 3049A  0.0642348566 -0.16979544
+## 
+## $centroids
+##                 PCoA1       PCoA2
+## sensitive -0.06823887 -0.07139907
+## tolerant   0.03122648  0.03500215
+## 
+## attr(,"class")
+## [1] "ordiplot"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prepDataFrame }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(g}\SpecialCharTok{$}\NormalTok{sites)}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\OtherTok{\textless{}{-}}\NormalTok{ groups}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{PCoA1\_centroids }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\SpecialCharTok{==} \StringTok{"sensitive"}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.06823887}\NormalTok{, }\FloatTok{0.03122648}\NormalTok{)}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{PCoA2\_centroids }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\SpecialCharTok{==} \StringTok{"sensitive"}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.07139907}\NormalTok{, }\FloatTok{0.03500215}\NormalTok{)}
+\NormalTok{prepDataFrame}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               PCoA1       PCoA2      Fsen PCoA1_centroids PCoA2_centroids
+## 3003A  0.0441677429  0.38283619  tolerant      0.03122648      0.03500215
+## 3004A  0.0828625107 -0.09278056 sensitive     -0.06823887     -0.07139907
+## 3005A  0.0379890702 -0.20157629  tolerant      0.03122648      0.03500215
+## 3007A -0.3759037336  0.24310633 sensitive     -0.06823887     -0.07139907
+## 3008A -0.1383976477 -0.07998188 sensitive     -0.06823887     -0.07139907
+## 3009A  0.3738847502  0.08029102  tolerant      0.03122648      0.03500215
+## 3012A -0.3354912089  0.18561258 sensitive     -0.06823887     -0.07139907
+## 3013A  0.2790018697  0.22083642  tolerant      0.03122648      0.03500215
+## 3014A  0.1259877419 -0.29315664 sensitive     -0.06823887     -0.07139907
+## 3016A -0.3012640720  0.03467458 sensitive     -0.06823887     -0.07139907
+## 3020A -0.1193846188  0.34179879  tolerant      0.03122648      0.03500215
+## 3021A -0.1011613674 -0.01159111 sensitive     -0.06823887     -0.07139907
+## 3022A  0.1736487599  0.07555590 sensitive     -0.06823887     -0.07139907
+## 3023A -0.2844635558  0.11542452  tolerant      0.03122648      0.03500215
+## 3025A -0.0530972414 -0.21449097 sensitive     -0.06823887     -0.07139907
+## 3026A  0.0990924366 -0.11741128 sensitive     -0.06823887     -0.07139907
+## 3027A  0.1019807428  0.08492518  tolerant      0.03122648      0.03500215
+## 3028A -0.0744293570 -0.14057275  tolerant      0.03122648      0.03500215
+## 3029A -0.0085005473 -0.20671649 sensitive     -0.06823887     -0.07139907
+## 3030A -0.1207205523 -0.14203642  tolerant      0.03122648      0.03500215
+## 3031A -0.0177008476  0.01135208  tolerant      0.03122648      0.03500215
+## 3032A  0.0785315462 -0.22475149  tolerant      0.03122648      0.03500215
+## 3033A -0.0851998964  0.08615089  tolerant      0.03122648      0.03500215
+## 3036A  0.4395745192  0.20615216  tolerant      0.03122648      0.03500215
+## 3037A -0.2723518847  0.11905957  tolerant      0.03122648      0.03500215
+## 3039A  0.0254193862 -0.09057678  tolerant      0.03122648      0.03500215
+## 3042A -0.0598141462 -0.11441495  tolerant      0.03122648      0.03500215
+## 3043A -0.1859450415  0.01279322  tolerant      0.03122648      0.03500215
+## 3044A  0.3864154615  0.30177975  tolerant      0.03122648      0.03500215
+## 3046A -0.0007573109 -0.29986991 sensitive     -0.06823887     -0.07139907
+## 3048A  0.2217916349 -0.10262622  tolerant      0.03122648      0.03500215
+## 3049A  0.0642348566 -0.16979544  tolerant      0.03122648      0.03500215
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(prepDataFrame, }\StringTok{"beta\_div\_df\_A.csv"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(readr)}
+\CommentTok{\# a dataset edited from NMDSNetworkData.csv}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(prepDataFrame, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ PCoA1, }\AttributeTok{y =}\NormalTok{ PCoA2, }\AttributeTok{xend =}\NormalTok{ PCoA1\_centroids, }\AttributeTok{yend =}\NormalTok{ PCoA2\_centroids, }\AttributeTok{color =}\NormalTok{ Fsen), }\AttributeTok{axes=}\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_edges}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_nodes}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"NMDS1"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"NMDS2"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{stat\_ellipse}\NormalTok{(}\AttributeTok{type =} \StringTok{"norm"}\NormalTok{, }\AttributeTok{linetype =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\AttributeTok{file=}\StringTok{"beta\_div\_A.pdf"}\NormalTok{, }\AttributeTok{width=}\DecValTok{10}\NormalTok{, }\AttributeTok{height=}\DecValTok{8}\NormalTok{, }\AttributeTok{dpi=}\DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{b}{%
+\section{4. B}\label{b}}
+
+\hypertarget{data-loading-and-cleaning-3}{%
+\subsection{4.1 data loading and
+cleaning}\label{data-loading-and-cleaning-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{otu\_mat}\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"/Users/chenlianfu/Documents/GitHub/IBS\_FructanSensitivity/diversityAnalysis/source/dietSubsets/speciesOTUTable\_B\_110422.xlsx"}\NormalTok{) }\CommentTok{\# CORRECT}
+\FunctionTok{row.names}\NormalTok{(otu\_mat) }\OtherTok{\textless{}{-}}\NormalTok{ otu\_mat}\SpecialCharTok{$}\NormalTok{otu}
+\NormalTok{otu\_mat }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(otu\_mat)}
+\NormalTok{otu\_mat\_t }\OtherTok{=} \FunctionTok{t}\NormalTok{(otu\_mat)}
+\NormalTok{otu\_mat\_t }\OtherTok{\textless{}{-}}\NormalTok{ otu\_mat\_t[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,]}
+\FunctionTok{class}\NormalTok{(otu\_mat\_t)}\OtherTok{\textless{}{-}}\StringTok{"numeric"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{samples\_df }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"/Users/chenlianfu/Documents/GitHub/IBS\_FructanSensitivity/diversityAnalysis/source/dietSubsets/brunoMetadata\_B\_110422.xlsx"}\NormalTok{) }\CommentTok{\# CORRECT}
+\NormalTok{groups}\OtherTok{\textless{}{-}}\FunctionTok{as.list}\NormalTok{(samples\_df[}\StringTok{\textquotesingle{}FsenText\textquotesingle{}}\NormalTok{])}\SpecialCharTok{$}\NormalTok{FsenText}
+\NormalTok{groups}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "tolerant"  "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant" 
+##  [7] "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant"  "sensitive"
+## [13] "sensitive" "tolerant"  "sensitive" "sensitive" "tolerant"  "tolerant" 
+## [19] "sensitive" "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant" 
+## [25] "tolerant"  "tolerant"  "tolerant"  "tolerant"  "tolerant"  "sensitive"
+## [31] "sensitive" "tolerant"  "tolerant"
+\end{verbatim}
+
+\hypertarget{alpha-diversity-3}{%
+\subsection{4.2 alpha diversity}\label{alpha-diversity-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alphaDiversity }\OtherTok{\textless{}{-}} \FunctionTok{diversity}\NormalTok{(otu\_mat\_t, }\AttributeTok{index=}\StringTok{"shannon"}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{aov}\NormalTok{(alphaDiversity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ groups))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Df Sum Sq Mean Sq F value Pr(>F)
+## groups       1  0.205  0.2048   1.709  0.201
+## Residuals   31  3.716  0.1199
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alphaDataframe }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(alphaDiversity, groups)}
+\FunctionTok{write.csv}\NormalTok{(alphaDataframe, }\StringTok{"alph\_div\_df\_B.csv"}\NormalTok{)}
+\NormalTok{p}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(alphaDataframe, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{groups, }\AttributeTok{y=}\NormalTok{alphaDiversity)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_dotplot}\NormalTok{(}\AttributeTok{binaxis=}\StringTok{\textquotesingle{}y\textquotesingle{}}\NormalTok{, }\AttributeTok{stackdir=}\StringTok{\textquotesingle{}center\textquotesingle{}}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Shannon Alpha Diversity {-} Maltodextrin challenge"}\NormalTok{)}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-23-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\AttributeTok{file=}\StringTok{"alpha\_div\_B.pdf"}\NormalTok{, }\AttributeTok{width=}\DecValTok{10}\NormalTok{, }\AttributeTok{height=}\DecValTok{8}\NormalTok{, }\AttributeTok{dpi=}\DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.
+\end{verbatim}
+
+\hypertarget{beta-diversity-3}{%
+\subsection{4.2 beta diversity}\label{beta-diversity-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dist }\OtherTok{\textless{}{-}} \FunctionTok{vegdist}\NormalTok{(otu\_mat\_t, }\AttributeTok{method =} \StringTok{"bray"}\NormalTok{)}
+\NormalTok{beta\_diversity\_maltedextrin\_challenge}\OtherTok{\textless{}{-}}\FunctionTok{betadisper}\NormalTok{(dist,groups)}
+\NormalTok{g }\OtherTok{\textless{}{-}} \FunctionTok{plot}\NormalTok{(beta\_diversity\_maltedextrin\_challenge)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-24-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dev.off}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (which = dev.cur()) 
+## {
+##     if (which == 1) 
+##         stop("cannot shut down device 1 (the null device)")
+##     .External(C_devoff, as.integer(which))
+##     dev.cur()
+## }
+## <bytecode: 0x7fb559c5b4e0>
+## <environment: namespace:grDevices>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggsave(file="beta\_div\_B.pdf", width=10, height=8, dpi=300)}
+\FunctionTok{anova}\NormalTok{(beta\_diversity\_maltedextrin\_challenge)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: Distances
+##           Df   Sum Sq   Mean Sq F value Pr(>F)
+## Groups     1 0.001532 0.0015322  0.2712 0.6062
+## Residuals 31 0.175136 0.0056495
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $sites
+##             PCoA1        PCoA2
+## 3003B -0.08733821 -0.173222333
+## 3004B -0.18993246 -0.196702847
+## 3005B  0.07910034 -0.132872041
+## 3007B  0.46019004  0.014244311
+## 3008B -0.26403615 -0.181499463
+## 3009B -0.21126392  0.530018157
+## 3012B  0.48733934  0.087823518
+## 3013B -0.17735839  0.208717224
+## 3014B -0.27260492  0.096391525
+## 3016B  0.39195588 -0.026829965
+## 3020B  0.12745157 -0.080654528
+## 3021B  0.07081405 -0.111158123
+## 3022B -0.05802723 -0.179591617
+## 3023B  0.44563164  0.085265541
+## 3025B -0.22210600  0.069081959
+## 3026B  0.11092528  0.068925851
+## 3027B -0.17704762 -0.032816227
+## 3028B -0.29646655  0.037732560
+## 3029B -0.18266949  0.354129866
+## 3030B  0.27892574 -0.054185874
+## 3031B  0.05084523 -0.191064095
+## 3032B  0.04167573 -0.063838746
+## 3033B  0.05710156  0.271372567
+## 3036B -0.33775822  0.135001634
+## 3037B  0.10904056 -0.009033567
+## 3039B -0.13816327 -0.077334095
+## 3042B -0.05233209 -0.255374026
+## 3043B -0.06259435 -0.188746235
+## 3044B -0.18081621 -0.006173986
+## 3046B  0.44932490  0.130474310
+## 3047B -0.01670551  0.263649343
+## 3048B -0.22181849 -0.270641239
+## 3049B -0.01128278 -0.121089358
+## 
+## $centroids
+##                 PCoA1       PCoA2
+## sensitive  0.04535485  0.02646003
+## tolerant  -0.04962727 -0.03320186
+## 
+## attr(,"class")
+## [1] "ordiplot"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prepDataFrame }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(g}\SpecialCharTok{$}\NormalTok{sites)}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\OtherTok{\textless{}{-}}\NormalTok{ groups}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{PCoA1\_centroids }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\SpecialCharTok{==} \StringTok{"sensitive"}\NormalTok{, }\FloatTok{0.04535485}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.04962727}\NormalTok{)}
+\NormalTok{prepDataFrame}\SpecialCharTok{$}\NormalTok{PCoA2\_centroids }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(prepDataFrame}\SpecialCharTok{$}\NormalTok{Fsen }\SpecialCharTok{==} \StringTok{"sensitive"}\NormalTok{, }\FloatTok{0.02646003}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.03320186}\NormalTok{)}
+\NormalTok{prepDataFrame}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             PCoA1        PCoA2      Fsen PCoA1_centroids PCoA2_centroids
+## 3003B -0.08733821 -0.173222333  tolerant     -0.04962727     -0.03320186
+## 3004B -0.18993246 -0.196702847 sensitive      0.04535485      0.02646003
+## 3005B  0.07910034 -0.132872041  tolerant     -0.04962727     -0.03320186
+## 3007B  0.46019004  0.014244311 sensitive      0.04535485      0.02646003
+## 3008B -0.26403615 -0.181499463 sensitive      0.04535485      0.02646003
+## 3009B -0.21126392  0.530018157  tolerant     -0.04962727     -0.03320186
+## 3012B  0.48733934  0.087823518 sensitive      0.04535485      0.02646003
+## 3013B -0.17735839  0.208717224  tolerant     -0.04962727     -0.03320186
+## 3014B -0.27260492  0.096391525 sensitive      0.04535485      0.02646003
+## 3016B  0.39195588 -0.026829965 sensitive      0.04535485      0.02646003
+## 3020B  0.12745157 -0.080654528  tolerant     -0.04962727     -0.03320186
+## 3021B  0.07081405 -0.111158123 sensitive      0.04535485      0.02646003
+## 3022B -0.05802723 -0.179591617 sensitive      0.04535485      0.02646003
+## 3023B  0.44563164  0.085265541  tolerant     -0.04962727     -0.03320186
+## 3025B -0.22210600  0.069081959 sensitive      0.04535485      0.02646003
+## 3026B  0.11092528  0.068925851 sensitive      0.04535485      0.02646003
+## 3027B -0.17704762 -0.032816227  tolerant     -0.04962727     -0.03320186
+## 3028B -0.29646655  0.037732560  tolerant     -0.04962727     -0.03320186
+## 3029B -0.18266949  0.354129866 sensitive      0.04535485      0.02646003
+## 3030B  0.27892574 -0.054185874  tolerant     -0.04962727     -0.03320186
+## 3031B  0.05084523 -0.191064095  tolerant     -0.04962727     -0.03320186
+## 3032B  0.04167573 -0.063838746  tolerant     -0.04962727     -0.03320186
+## 3033B  0.05710156  0.271372567  tolerant     -0.04962727     -0.03320186
+## 3036B -0.33775822  0.135001634  tolerant     -0.04962727     -0.03320186
+## 3037B  0.10904056 -0.009033567  tolerant     -0.04962727     -0.03320186
+## 3039B -0.13816327 -0.077334095  tolerant     -0.04962727     -0.03320186
+## 3042B -0.05233209 -0.255374026  tolerant     -0.04962727     -0.03320186
+## 3043B -0.06259435 -0.188746235  tolerant     -0.04962727     -0.03320186
+## 3044B -0.18081621 -0.006173986  tolerant     -0.04962727     -0.03320186
+## 3046B  0.44932490  0.130474310 sensitive      0.04535485      0.02646003
+## 3047B -0.01670551  0.263649343 sensitive      0.04535485      0.02646003
+## 3048B -0.22181849 -0.270641239  tolerant     -0.04962727     -0.03320186
+## 3049B -0.01128278 -0.121089358  tolerant     -0.04962727     -0.03320186
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(prepDataFrame, }\StringTok{"beta\_div\_df\_B.csv"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(readr)}
+\CommentTok{\# a dataset edited from NMDSNetworkData.csv}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(prepDataFrame, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ PCoA1, }\AttributeTok{y =}\NormalTok{ PCoA2, }\AttributeTok{xend =}\NormalTok{ PCoA1\_centroids, }\AttributeTok{yend =}\NormalTok{ PCoA2\_centroids, }\AttributeTok{color =}\NormalTok{ Fsen), }\AttributeTok{axes=}\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_edges}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_nodes}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Fsen)) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"NMDS1"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"NMDS2"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{stat\_ellipse}\NormalTok{(}\AttributeTok{type =} \StringTok{"norm"}\NormalTok{, }\AttributeTok{linetype =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{brunoDiversityAnalysis_simple_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\AttributeTok{file=}\StringTok{"beta\_div\_B.pdf"}\NormalTok{, }\AttributeTok{width=}\DecValTok{10}\NormalTok{, }\AttributeTok{height=}\DecValTok{8}\NormalTok{, }\AttributeTok{dpi=}\DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

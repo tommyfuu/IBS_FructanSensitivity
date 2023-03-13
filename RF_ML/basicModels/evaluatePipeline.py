@@ -83,6 +83,8 @@ def evaluate(addressX, addressY, model, modelName, parameter_grid = []):
                 currentLegend = "No necessary parameters needed"
             ## predict
             currentPredictions = currentModel.predict(testX)
+            print(testYs)
+            print(currentPredictions)
             ## compare and evaluate
             ### AUC scores
             try:
