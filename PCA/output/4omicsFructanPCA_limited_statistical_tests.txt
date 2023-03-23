@@ -1,0 +1,2 @@
+test type is t testTtest_indResult(statistic=0.0, pvalue=1.0)
+test type is t testTtest_indResult(statistic=0.0, pvalue=1.0)

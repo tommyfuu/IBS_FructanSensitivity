@@ -1,0 +1,2 @@
+test type is ANOVAF_onewayResult(statistic=9.817187634403334e-33, pvalue=1.0)
+test type is ANOVAF_onewayResult(statistic=4.276055042950274e-32, pvalue=1.0)

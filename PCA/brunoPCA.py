@@ -5,6 +5,7 @@ from sklearn.decomposition import PCA
 import preprocessing
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
+from scipy.stats import f_oneway, ttest_ind
 
 def plotPCA(ZMatrix, binaryY, outputRoot, targets=['A', 'B', 'BS'], colors=['r', 'g', 'b'], figsize_input = (8,8), limit=False):
     '''
@@ -28,8 +29,10 @@ def plotPCA(ZMatrix, binaryY, outputRoot, targets=['A', 'B', 'BS'], colors=['r',
     ax.set_ylabel('Principal Component 2', fontsize=15)
     ax.set_title(outputRoot+'2 component PCA', fontsize=20)
     if limit:
-        ax.set_xlim(left=-50, right=50)
-        ax.set_ylim(bottom=-50, top=50)
+        # ax.set_xlim(left=-50, right=50)
+        # ax.set_ylim(bottom=-50, top=50)
+        ax.set_xlim(left=-10, right=10)
+        ax.set_ylim(bottom=-10, top=10)
 
     for target, color in zip(targets, colors):
         # print("Trying")
@@ -38,7 +41,36 @@ def plotPCA(ZMatrix, binaryY, outputRoot, targets=['A', 'B', 'BS'], colors=['r',
         # print(indicesToKeep)
         ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'],
                    finalDf.loc[indicesToKeep, 'principal component 2'], c=color, s=50)
+    print("finalDf")
+    # print(finalDf)
     ax.legend(targets, loc="right")
+
+    file = open(outputRoot+"_statistical_tests.txt", "w")
+    for colname in ["principal component 1", "principal component 2"]:
+        values = list(finalDf[colname])
+        targets = list(finalDf["target"])
+
+        all_values = []
+
+        for unique_target in np.unique(list(finalDf['target'])):
+            current_vals = []
+            for idx, target in enumerate(targets):
+                current_vals.append(values[idx])
+            all_values.append(current_vals)
+        # determine the test used
+        if len(np.unique(list(finalDf['target']))) == 3:
+            # use anova
+            print("ANOVAAA")
+            print(f_oneway(*all_values))
+            file.write("test type is ANOVA")
+            file.write(str(f_oneway(*all_values)) + '\n')
+        elif len(np.unique(list(finalDf['target']))) == 2:
+            # use student t test
+            print("ttestAAA")
+            print(ttest_ind(*all_values))
+            file.write("test type is t test")
+            file.write(str(ttest_ind(*all_values)) + '\n')
+        
     if '4omicsPatientIDPCA' in outputRoot:
         pos = ax.get_position()
         ax.set_position([pos.x0, pos.y0, pos.width * 0.9, pos.height])
@@ -255,52 +287,61 @@ patientID_colorL = ["black",
 allOmicsX = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/source/4omicsAllX.txt'
 humann3YW = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/sourceData/4omicsAllY_wmetadata.xlsx'
 
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsDietsPCA', columnValue='Diet',
-            targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsFructanPCA', columnValue='FRUCTANSENSITIVE',
-            targets=[0, 1], colors=['r', 'g'])
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsPatientIDPCA', columnValue='Patient_ID',
-            targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsDietsPCA', columnValue='Diet',
+#             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsFructanPCA', columnValue='FRUCTANSENSITIVE',
+#             targets=[0, 1], colors=['r', 'g'])
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsPatientIDPCA', columnValue='Patient_ID',
+#             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
 
 
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsDietsPCA_limited', columnValue='Diet',
-            targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'], limit=True)
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsFructanPCA_limited', columnValue='FRUCTANSENSITIVE',
-            targets=[0, 1], colors=['r', 'g'], limit=True)
-completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsPatientIDPCA_limited', columnValue='Patient_ID',
-            targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8), limit=True)
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsDietsPCA_limited', columnValue='Diet',
+#             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'], limit=True)
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsFructanPCA_limited', columnValue='FRUCTANSENSITIVE',
+#             targets=[0, 1], colors=['r', 'g'], limit=True)
+# completePCA(allOmicsX, humann3YW, outputRoot='./output/4omicsPatientIDPCA_limited', columnValue='Patient_ID',
+#             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8), limit=True)
 
-humann3X = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/humann3PCA031323.txt'
-completePCA(humann3X, humann3YW, outputRoot='./output/humann3DietsPCA', columnValue='Diet',
-            targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
-completePCA(humann3X, humann3YW, outputRoot='./output/humann3FructanPCA', columnValue='FRUCTANSENSITIVE',
-            targets=[0, 1], colors=['r', 'g'])
-completePCA(humann3X, humann3YW, outputRoot='./output/humann3PatientIDPCA', columnValue='Patient_ID',
-            targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
+# humann3X = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/humann3PCA031323.txt'
+# completePCA(humann3X, humann3YW, outputRoot='./output/humann3DietsPCA', columnValue='Diet',
+#             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
+# completePCA(humann3X, humann3YW, outputRoot='./output/humann3FructanPCA', columnValue='FRUCTANSENSITIVE',
+#             targets=[0, 1], colors=['r', 'g'])
+# completePCA(humann3X, humann3YW, outputRoot='./output/humann3PatientIDPCA', columnValue='Patient_ID',
+#             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
 
-lipidsX = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/lipidsPCA031323.txt'
-completePCA(lipidsX, humann3YW, outputRoot='./output/lipidsDietsPCA', columnValue='Diet',
-            targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
-completePCA(lipidsX, humann3YW, outputRoot='./output/lipidsFructanPCA', columnValue='FRUCTANSENSITIVE',
-            targets=[0, 1], colors=['r', 'g'])
-completePCA(lipidsX, humann3YW, outputRoot='./output/lipidsPatientIDPCA', columnValue='Patient_ID',
-            targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
+# lipidsX = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/lipidsPCA031323.txt'
+# completePCA(lipidsX, humann3YW, outputRoot='./output/lipidsDietsPCA', columnValue='Diet',
+#             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
+# completePCA(lipidsX, humann3YW, outputRoot='./output/lipidsFructanPCA', columnValue='FRUCTANSENSITIVE',
+#             targets=[0, 1], colors=['r', 'g'])
+# completePCA(lipidsX, humann3YW, outputRoot='./output/lipidsPatientIDPCA', columnValue='Patient_ID',
+#             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
 
-metabolitesX = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/metabolitesPCA031323.txt'
-completePCA(metabolitesX, humann3YW, outputRoot='./output/metabolitesDietsPCA', columnValue='Diet',
-            targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
-completePCA(metabolitesX, humann3YW, outputRoot='./output/metabolitesFructanPCA', columnValue='FRUCTANSENSITIVE',
-            targets=[0, 1], colors=['r', 'g'])
-completePCA(metabolitesX, humann3YW, outputRoot='./output/metabolitesPatientIDPCA', columnValue='Patient_ID',
-            targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
+# metabolitesX = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/metabolitesPCA031323.txt'
+# completePCA(metabolitesX, humann3YW, outputRoot='./output/metabolitesDietsPCA', columnValue='Diet',
+#             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
+# completePCA(metabolitesX, humann3YW, outputRoot='./output/metabolitesFructanPCA', columnValue='FRUCTANSENSITIVE',
+#             targets=[0, 1], colors=['r', 'g'])
+# completePCA(metabolitesX, humann3YW, outputRoot='./output/metabolitesPatientIDPCA', columnValue='Patient_ID',
+#             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
 
 metaphlanX = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/metaphlanPCA031323.txt'
-completePCA(metaphlanX, humann3YW, outputRoot='./output/metaphlanDietsPCA', columnValue='Diet',
-            targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
-completePCA(metaphlanX, humann3YW, outputRoot='./output/metaphlanFructanPCA', columnValue='FRUCTANSENSITIVE',
-            targets=[0, 1], colors=['r', 'g'])
-completePCA(metaphlanX, humann3YW, outputRoot='./output/metaphlanPatientIDPCA', columnValue='Patient_ID',
-            targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
+# completePCA(metaphlanX, humann3YW, outputRoot='./output/metaphlanDietsPCA', columnValue='Diet',
+#             targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'])
+# completePCA(metaphlanX, humann3YW, outputRoot='./output/metaphlanFructanPCA', columnValue='FRUCTANSENSITIVE',
+#             targets=[0, 1], colors=['r', 'g'])
+# completePCA(metaphlanX, humann3YW, outputRoot='./output/metaphlanPatientIDPCA', columnValue='Patient_ID',
+#             targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8))
+
+completePCA(metaphlanX, humann3YW, outputRoot='./output/metaphlanDietsPCA_limited', columnValue='Diet',
+            targets=['A', 'B', 'BL'], colors=['r', 'g', 'b'], limit=True)
+completePCA(metaphlanX, humann3YW, outputRoot='./output/metaphlanFructanPCA_limited', columnValue='FRUCTANSENSITIVE',
+            targets=[0, 1], colors=['r', 'g'], limit=True)
+completePCA(metaphlanX, humann3YW, outputRoot='./output/metaphlanPatientIDPCA_limited', columnValue='Patient_ID',
+            targets=patientIDs, colors=patientID_colorL, figsizeInput=(20, 8), limit=True)
+
+
 
 # humann3X = '/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/PCA/humann3PCA031323.txt'
 # completePCA(humann3X, humann3YW, outputRoot='./output/humann3DietsPCA_limited', columnValue='Diet',
