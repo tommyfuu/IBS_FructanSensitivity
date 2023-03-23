@@ -129,9 +129,12 @@ g <- plot(beta_diversity_BS)
 anova(beta_diversity_BS)
 g
 ```
+```{r}
+beta_diversity_BS<-betadisper(dist,groups)
+```
 
 ```{r}
-coefficients(anova(beta_diversity_BS))
+anova(beta_diversity_BS)
 ```
 
 ```{r}
