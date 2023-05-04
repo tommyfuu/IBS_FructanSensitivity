@@ -1,2 +1,2 @@
-test type is ANOVAF_onewayResult(statistic=-5.830726835415315e-32, pvalue=nan)
-test type is ANOVAF_onewayResult(statistic=-7.057279859780781e-34, pvalue=nan)
+test type is kruskalKruskalResult(statistic=1.136973609921423e-13, pvalue=0.9999999999999432)
+test type is kruskalKruskalResult(statistic=1.136973609921423e-13, pvalue=0.9999999999999432)

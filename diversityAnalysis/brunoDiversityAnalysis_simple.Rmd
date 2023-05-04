@@ -30,13 +30,53 @@ otu_mat <- as.matrix(otu_mat)
 otu_mat_t = t(otu_mat)
 otu_mat_t <- otu_mat_t[-1,]
 class(otu_mat_t)<-"numeric"
-View(otu_mat_t)
 ```
 
 ```{r}
 samples_df <- read_excel("/Users/chenlianfu/Documents/GitHub/IBS_FructanSensitivity/diversityAnalysis/source/brunoMetadata110422_1.xlsx") # CORRECT
 groups<-as.list(samples_df['FsenText'])$FsenText
 groups
+```
+
+
+```{r}
+samples_df
+```
+
+```{r}
+seqObj <- phyloseq(otu_table(as.matrix(otu_mat_t), taxa_are_rows= FALSE), sample_names(samples_df['FsenText']))
+###Beta diversity
+ord <- ordinate(seqObj, method = "NMDS", "bray")
+NMDSNetworkData <- as.data.frame(ord["points"])
+NMDSNetworkData$group <- groups
+
+
+allxend <- sapply(split(NMDSNetworkData$points.MDS1, NMDSNetworkData$group), mean) # xend_calculated for each group
+allyend <- sapply(split(NMDSNetworkData$points.MDS2, NMDSNetworkData$group), mean) # yend_calculated for each group
+NMDSNetworkData$xend_calculated <- 0
+NMDSNetworkData$yend_calculated <- 0
+for (x in 1:nrow(NMDSNetworkData)) {
+  NMDSNetworkData$xend_calculated[x] <- unname(allxend[NMDSNetworkData$group[x]])
+  NMDSNetworkData$yend_calculated[x] <- unname(allyend[NMDSNetworkData$group[x]])
+}
+```
+
+
+```{r}
+permanova <- vegan::adonis(otu_table(seqObj)~ groups, permutations=300, method = "bray")
+permanova.pval <- permanova$aov.tab[,"Pr(>F)"][1]
+
+print(ggplot(NMDSNetworkData,
+             aes(x = points.MDS1, y = points.MDS2, xend = xend_calculated, yend = yend_calculated, color = group),
+             axes=TRUE) +
+        geom_point(aes(color = group)) +
+        geom_edges(aes(color = group)) +
+        geom_nodes(aes(color = group)) +
+        xlab("NMDS1") +
+        ylab("NMDS2")+
+        stat_ellipse(type = "norm", linetype = 2) +
+        theme_classic() +
+        labs(title = paste0('Fructan sensitivity', " PERMANOVA p-value = ", round(permanova.pval, 4))))
 ```
 
 ## 1.2 alpha diversity
@@ -64,6 +104,22 @@ g <- plot(beta_diversity_all)
 anova(beta_diversity_all)
 g
 ```
+
+```{r}
+beta_diversity_all
+```
+
+```{r}
+aov.model <- anova(beta_diversity_all)
+aov.model$coefficients
+```
+
+```{r}
+permanova <- vegan::adonis((otu_mat_t )~ groups, permutations=100, method = "bray")
+permanova$aov.tab[,"Pr(>F)"][1]
+```
+
+
 
 ```{r}
 prepDataFrame <- as.data.frame(g$sites)

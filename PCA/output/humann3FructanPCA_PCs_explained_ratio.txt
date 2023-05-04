@@ -1,0 +1,2 @@
+PCs explained ratio
+[0.26643186 0.1103812 ]
